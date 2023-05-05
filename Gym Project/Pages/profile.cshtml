@@ -1,0 +1,249 @@
+﻿@page
+@model Gym_Project.Pages.homepage_2Model
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "_layout3"; 
+
+}
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="images/coach2.jpg" alt="" />
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h1>
+                        Yousef Khaled
+                    </h1>
+                    <h4>
+                        Student
+                    </h4>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>E-mail</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone number</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Class</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Password</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>User Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" value="John Doe" readonly class="innput">
+                                <button class="btn" id="edit-name-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Birth Date</label>
+                        </div>
+                        <div class="birthdate-form">
+                            <label for="day-input">Day:</label>
+                            <span id="day-display">01</span>
+                            <input type="number" id="day-input" name="day" value="01" min="1" max="31" style="display:none;">
+
+                            <label for="month-input">Month:</label>
+                            <span id="month-display">January</span>
+                            <select id="month-input" name="month" style="display:none;">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+
+                            <label for="year-input">Year:</label>
+                            <span id="year-display">2000</span>
+                            <input type="number" id="year-input" name="year" value="2000" min="1900" max="2023" style="display:none;">
+
+                            <button class="btn" id="edit-button" type="button">
+                                <span class="icon">
+                                    <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                        <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                    </svg>
+                                </span>
+                                <span class="text">Edit</span>
+                            </button>                                <button id="save-button" style="display:none;" type="button">Save</button>
+                        </div>
+
+                        <script>
+                            // Get the form elements
+                            const dayDisplay = document.getElementById("day-display");
+                            const monthDisplay = document.getElementById("month-display");
+                            const yearDisplay = document.getElementById("year-display");
+                            const dayInput = document.getElementById("day-input");
+                            const monthInput = document.getElementById("month-input");
+                            const yearInput = document.getElementById("year-input");
+                            const editButton = document.getElementById("edit-button");
+                            const saveButton = document.getElementById("save-button");
+
+                            // Function to toggle between edit and display modes
+                            function toggleEditMode() {
+                                // Toggle display/edit mode for each input
+                                dayDisplay.style.display = dayDisplay.style.display === "none" ? "inline" : "none";
+                                monthDisplay.style.display = monthDisplay.style.display === "none" ? "inline" : "none";
+                                yearDisplay.style.display = yearDisplay.style.display === "none" ? "inline" : "none";
+                                dayInput.style.display = dayInput.style.display === "none" ? "inline" : "none";
+                                monthInput.style.display = monthInput.style.display === "none" ? "inline" : "none";
+                                yearInput.style.display = yearInput.style.display === "none" ? "inline" : "none";
+
+                                // Toggle button visibility
+                                editButton.style.display = editButton.style.display === "none" ? "inline-block" : "none";
+                                saveButton.style.display = saveButton.style.display === "none" ? "inline-block" : "none";
+                            }
+
+                            // Add click event listeners to the Edit and Save buttons
+                            editButton.addEventListener("click", toggleEditMode);
+                            saveButton.addEventListener("click", () => {
+                                // Update the display with the new values
+                                dayDisplay.innerText = dayInput.value;
+                                monthDisplay.innerText = monthInput.options[monthInput.selectedIndex].text;
+                                yearDisplay.innerText = yearInput.value;
+                                // Toggle back to display mode
+                                toggleEditMode();
+                            });
+                        </script>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    const nameInput = document.getElementById('name');
+    const editNameBtn = document.getElementById('edit-name-btn');
+
+    editNameBtn.addEventListener('click', () => {
+        nameInput.removeAttribute('readonly');
+        nameInput.focus();
+    });
+
+    nameInput.addEventListener('blur', () => {
+        nameInput.setAttribute('readonly', true);
+    });
+</script>

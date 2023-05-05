@@ -1,0 +1,410 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div id="loginForm" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginForm()">&times;</span>
+        <h2 style="color:#2a2a2a">Login</h2>
+        <form method="post" asp-page="/homepage_2">
+            <label for="username">User name</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+
+            <div class="form-links">
+                <a href="#">Forgot password?</a>
+                <span>|</span>
+                <a href="#">Create account</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="SignupForm" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignupForm()">&times;</span>
+        <h2 style="color:#2a2a2a">Signup</h2>
+        <form method ="post" asp-page="/homepage_4">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="username">User name</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <label for="password">Confirm Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Signup">
+
+            <div class="form-links">
+                <a href="#">Already have an account?</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function openLoginForm() {
+        document.getElementById("loginForm").style.display = "block";
+    }
+
+    // Close the login form popup
+    function closeLoginForm() {
+        document.getElementById("loginForm").style.display = "none";
+    }
+    function openSignupForm() {
+        document.getElementById("SignupForm").style.display = "block";
+    }
+
+    // Close the login form popup
+    function closeSignupForm() {
+        document.getElementById("SignupForm").style.display = "none";
+    }
+</script>
+
+<!-- ***** Header Area End ***** -->
+
+<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 align-self-center">
+                        <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h6>Zewail City Gym</h6>
+                                    <h2>Where you can advance your physique along with your academics</h2>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="border-first-button scroll-to-section">
+                                        <button href="#" onclick="openLoginForm()">Join us</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<div id="services" class="services section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <h6>Zewail city</h6>
+                    <div class="line-dec"></div>
+                    <p>Zewail City of Science, Technology and Innovation is a nonprofit, independent institution of learning, research and innovation. The concept of the City was proposed in 1999 and its comerstone laid on January 1, 2000, Founded 2011, by its founder Dr. Ahmed Zewail</p>
+                    <h6>The Gym</h6>
+                    <div class="line-dec"></div>
+                    <p>Zewail City's Gym is a facility that the city provides for the students, the employees, and the staff to maximize their physique and to help them improve their health along with their studies, work</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <h6>Our Coaches</h6>
+                    <h4>See Our Gym Captains:</h4>
+                    <div class="line-dec"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="loop owl-carousel">
+                    <div class="item">
+                        <a href="#">
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                    <img src="images/mohamed.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Mohamed Elsayed</h4>
+                                    <span>Trainer</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="item">
+                        <a href="#">
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                    <img src="images/coach1.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Abdelrahman Ahmed</h4>
+                                    <span>Trainer</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                    <img src="images/coach2.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Yousef Khaled</h4>
+                                    <span>Trainer</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="free-quote" class="free-quote">
+    <div class="container">
+        <div class="w-95 w-md-75 w-lg-60 w-xl-55 mx-auto mb-6 text-center">
+            <h2 class="display-18 display-md-16 display-lg-14 mb-0">The timetable of the gym </h2>
+            <h2>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="schedule-table">
+                    <table class="table bg-white">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>12 pm</th>
+                                <th>03 pm</th>
+                                <th>05 pm</th>
+                                <th>06 pm</th>
+                                <th class="last">08 pm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="day">Sunday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day">Monday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="day">Tuesday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day">Wednesday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day">Thursday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

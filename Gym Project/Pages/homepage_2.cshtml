@@ -1,0 +1,670 @@
+﻿@page
+@model Gym_Project.Pages.homepage_2Model
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "_layout1"; 
+
+}
+
+
+<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 align-self-center">
+                        <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h6>Welcome, Yousef!</h6>
+                                    <h2>Your current weight is: 65kg</h2>
+                                    <h2>Your current Height is: 170m</h2>
+                                    <h2>Your fat percentage is: 12%</h2>
+                                    <h2>Your muscle mass is: 34kg</h2>
+                                    <p>''</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="about" class="about section">
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <h6>Monthly plan</h6>
+                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
+                <p>150 EGP/Month</p>
+                <div class="border-first-button"><button disabled>Subscribe</button></div>
+            </div>
+            <div class="card">
+                <h6>3 Months plan</h6>
+                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
+                <p>120 EGP/Month</p>
+                <div class="border-first-button"><button>Subscirbe</button></div>
+            </div>
+            <div class="card">
+                <h6>6 Months plan</h6>
+                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
+                <p>100 EGP/Month</p>
+                <div class="border-first-button"><button>Subscirbe</button></div>
+            </div>
+            <div class="card">
+                <h6>Yearly plan</h6>
+                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
+                <p>75 EGP/Month</p>
+                <div class="border-first-button"><button>Subscirbe</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Get all the buttons inside the cards
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const buttons = card.querySelectorAll('button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.disabled = false;
+                    }
+                });
+
+                button.disabled = true;
+            });
+        });
+    });</script>
+
+<div id="services" class="services section">
+    <div class="container">
+        <div class="feedback-form">
+            <form>
+                <div class="feedback-question">
+                    <label for="facilities">How do you rate the gym facilities?</label>
+                    <div class="rating">
+                        <input type="radio" name="facilities" value="1" id="facilities-1">
+                        <label for="facilities-1">1</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="facilities" value="2" id="facilities-2">
+                        <label for="facilities-2">2</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="facilities" value="3" id="facilities-3">
+                        <label for="facilities-3">3</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="facilities" value="4" id="facilities-4">
+                        <label for="facilities-4">4</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="facilities" value="5" id="facilities-5">
+                        <label for="facilities-5">5</label>
+                    </div>
+                </div>
+                <div class="feedback-question">
+                    <label for="captains">How do you rate the captains?</label>
+                    <div class="rating">
+                        <input type="radio" name="captains" value="1" id="captains-1">
+                        <label for="captains-1">1</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="captains" value="2" id="captains-2">
+                        <label for="captains-2">2</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="captains" value="3" id="captains-3">
+                        <label for="captains-3">3</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="captains" value="4" id="captains-4">
+                        <label for="captains-4">4</label>
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="captains" value="5" id="captains-5">
+                        <label for="captains-5">5</label>
+                    </div>
+                </div>
+                <div class="feedback-comment">
+                    <label for="comment">Comments about the gym:</label>
+                    <textarea id="comment" name="comment"></textarea>
+                </div>
+                <div class="feedback-submit">
+                    <button class="button">
+                        <span class="button_lg">
+                            <span class="button_sl"></span>
+                            <span class="button_text">Submit</span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            // select all the stars and the comment input
+            const stars = document.querySelectorAll('.rating-star');
+            const commentInput = document.querySelector('.comment-input');
+
+            // initialize variables to keep track of selected ratings
+            let gymRating = 0;
+            let captainRating = 0;
+
+            // add event listeners to all the stars
+            stars.forEach((star) => {
+                star.addEventListener('click', () => {
+                    // get the rating value from the star's data attribute
+                    const rating = star.getAttribute('data-rating');
+                    // get the question type from the star's data attribute
+                    const questionType = star.getAttribute('data-question-type');
+                    // if the star is already active, remove the active class and reset the rating variable
+                    if (star.classList.contains('active')) {
+                        star.classList.remove('active');
+                        if (questionType === 'gym') {
+                            gymRating = 0;
+                        } else if (questionType === 'captain') {
+                            captainRating = 0;
+                        }
+                    } else {
+                        // if the star is not already active, add the active class and set the rating variable
+                        star.classList.add('active');
+                        if (questionType === 'gym') {
+                            gymRating = rating;
+                            // remove active class from all other gym stars
+                            const otherGymStars = document.querySelectorAll('[data-question-type="gym"]:not([data-rating="' + rating + '"])');
+                            otherGymStars.forEach((otherStar) => {
+                                otherStar.classList.remove('active');
+                            });
+                        } else if (questionType === 'captain') {
+                            captainRating = rating;
+                            // remove active class from all other captain stars
+                            const otherCaptainStars = document.querySelectorAll('[data-question-type="captain"]:not([data-rating="' + rating + '"])');
+                            otherCaptainStars.forEach((otherStar) => {
+                                otherStar.classList.remove('active');
+                            });
+                        }
+                    }
+                });
+            });
+
+            // add event listener to the comment input
+            commentInput.addEventListener('input', () => {
+                // get the comment value from the input
+                const comment = commentInput.value;
+                // set the comment variable to the comment value
+                commentInput.setAttribute('data-comment', comment);
+            });
+
+            // add event listener to the submit button
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.addEventListener('click', () => {
+                // check that both ratings have been selected
+                if (gymRating === 0 || captainRating === 0) {
+                    alert('Please rate both gym facilities and captains.');
+                } else {
+                    // get the comment value and log the feedback
+                    const comment = commentInput.getAttribute('data-comment');
+                    console.log(`Gym facilities rating: ${gymRating}, Captains rating: ${captainRating}, Comment: ${comment}`);
+                }
+            });
+
+        </script>
+    </div>
+</div>
+
+
+<div id="free-quote" class="free-quote">
+    <div class="container">
+        <div class="w-95 w-md-75 w-lg-60 w-xl-55 mx-auto mb-6 text-center">
+            <h2 class="display-18 display-md-16 display-lg-14 mb-0" style="color: white; font-size: 40px">The timetable of the gym </h2>
+            <h2>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="schedule-table">
+                    <table class="table bg-white">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>12 pm</th>
+                                <th>03 pm</th>
+                                <th>05 pm</th>
+                                <th>06 pm</th>
+                                <th class="last">08 pm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="day">Sunday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day">Monday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="day">Tuesday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day">Wednesday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day">Thursday</td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>girls only time</h4>
+                                    <div class="hover">
+                                        <h4>Girls only time</h4>
+                                        <p>Girls only are allowed</p>
+                                        <span>5pm-6pm</span>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                                <td class="active">
+                                    <h4>Boys and girls time</h4>
+                                    <div class="hover">
+                                        <h4>Boys and Girls time</h4>
+                                        <p>both are allowed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+        <h6>Weight</h6>
+        <figure class="css-chart" style="--widget-size: 200px;">
+            <ul class="line-chart">
+                <li style="--x: 40px; --y: 83.3333px;">
+                    <div class="data-point" data-value="25"></div>
+                    <div class="line-segment" style="--hypotenuse: 123.33333333333333; --angle:-71.07535558394876;"></div>
+                </li>
+                <li style="--x: 80px; --y: 200px;">
+                    <div class="data-point" data-value="60"></div>
+                    <div class="line-segment" style="--hypotenuse: 64.03124237432849; --angle:51.34019174590991;"></div>
+                </li>
+                <li style="--x: 120px; --y: 150px;">
+                    <div class="data-point" data-value="45"></div>
+                    <div class="line-segment" style="--hypotenuse: 43.333333333333336; --angle:-22.61986494804045;"></div>
+                </li>
+                <li style="--x: 160px; --y: 166.667px;">
+                    <div class="data-point" data-value="50"></div>
+                    <div class="line-segment" style="--hypotenuse: 52.068331172711055; --angle:39.805571092265225;"></div>
+                </li>
+                <li style="--x: 200px; --y: 133.333px;">
+                    <div class="data-point" data-value="40"></div>
+                    <div class="line-segment" style="--hypotenuse: 0; --angle:0;"></div>
+                </li>
+            </ul>
+        </figure>
+        <h6>Height</h6>
+
+
+        <figure class="css-chart" style="--widget-size: 200px;">
+            <ul class="line-chart">
+                <li style="--x: 40px; --y: 83.3333px;">
+                    <div class="data-point" data-value="25"></div>
+                    <div class="line-segment" style="--hypotenuse: 123.33333333333333; --angle:-71.07535558394876;"></div>
+                </li>
+                <li style="--x: 80px; --y: 200px;">
+                    <div class="data-point" data-value="60"></div>
+                    <div class="line-segment" style="--hypotenuse: 64.03124237432849; --angle:51.34019174590991;"></div>
+                </li>
+                <li style="--x: 120px; --y: 150px;">
+                    <div class="data-point" data-value="45"></div>
+                    <div class="line-segment" style="--hypotenuse: 43.333333333333336; --angle:-22.61986494804045;"></div>
+                </li>
+                <li style="--x: 160px; --y: 166.667px;">
+                    <div class="data-point" data-value="50"></div>
+                    <div class="line-segment" style="--hypotenuse: 52.068331172711055; --angle:39.805571092265225;"></div>
+                </li>
+                <li style="--x: 200px; --y: 133.333px;">
+                    <div class="data-point" data-value="40"></div>
+                    <div class="line-segment" style="--hypotenuse: 0; --angle:0;"></div>
+                </li>
+            </ul>
+        </figure>
+        <h6>Fat muscle</h6>
+
+
+        <figure class="css-chart" style="--widget-size: 200px;">
+            <ul class="line-chart">
+                <li style="--x: 40px; --y: 83.3333px;">
+                    <div class="data-point" data-value="25"></div>
+                    <div class="line-segment" style="--hypotenuse: 123.33333333333333; --angle:-71.07535558394876;"></div>
+                </li>
+                <li style="--x: 80px; --y: 200px;">
+                    <div class="data-point" data-value="60"></div>
+                    <div class="line-segment" style="--hypotenuse: 64.03124237432849; --angle:51.34019174590991;"></div>
+                </li>
+                <li style="--x: 120px; --y: 150px;">
+                    <div class="data-point" data-value="45"></div>
+                    <div class="line-segment" style="--hypotenuse: 43.333333333333336; --angle:-22.61986494804045;"></div>
+                </li>
+                <li style="--x: 160px; --y: 166.667px;">
+                    <div class="data-point" data-value="50"></div>
+                    <div class="line-segment" style="--hypotenuse: 52.068331172711055; --angle:39.805571092265225;"></div>
+                </li>
+                <li style="--x: 200px; --y: 133.333px;">
+                    <div class="data-point" data-value="40"></div>
+                    <div class="line-segment" style="--hypotenuse: 0; --angle:0;"></div>
+                </li>
+            </ul>
+        </figure>
+
+
+
+        <style>
+            .css-chart {
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                display: inline-block;
+                height: var(--widget-size);
+                margin: 5em 15em 1em 5em;
+                padding: 0;
+                position: relative;
+                width: var(--widget-size);
+            }
+
+            .line-chart {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .data-point {
+                background-color: white;
+                border: 2px solid lightblue;
+                border-radius: 50%;
+                bottom: calc(var(--y) - 8px);
+                height: 12px;
+                left: calc(var(--x) - 8px);
+                position: absolute;
+                width: 12px;
+                z-index: 1;
+            }
+
+            .line-segment {
+                background-color: blue;
+                bottom: var(--y);
+                height: 3px;
+                left: var(--x);
+                position: absolute;
+                transform: rotate(calc(var(--angle) * 1deg));
+                transform-origin: left bottom;
+                width: calc(var(--hypotenuse) * 1px);
+            }
+        </style>
+
+        <script>
+            const chartValues = [{ value: 25 }, { value: 60 }, { value: 45 }, { value: 50 }, { value: 40 }]
+
+            function formatLineChartData(values, chartHeight) {
+
+                //divide chart size by total number of points to get length of triangle base. That becomes the left offset for each new point
+                //subtract previous point height from new point height to get the rise of the triangle. That becomes the bottom offset for the new point.
+                //use base squared + rise squared to find the length of the hypotenuse. That becomes the width of the line to draw.
+                //use Math.asin(base / hypotenuse) [then convert the radians to degrees] to find the degree angle to rotate the line to.
+                //Multiply the rotation angle by -1 if it needs to rise to meet the next point.
+
+                const widgetSize = chartHeight;
+                const pointSize = 16;
+
+                const base = (widgetSize - pointSize / 2) / values.length;
+
+                let sortedValues = sortValues([...values]);
+
+                const topMostPoint = sortedValues[0].value;
+                let leftOffset = pointSize; //padding for left axis labels
+                let nextPoint = 0;
+                let rise = 0;
+                let cssValues = [];
+
+                for (var i = 0, len = values.length - 1; i < len; i++) {
+
+                    var currentValue = {
+                        left: 0,
+                        bottom: 0,
+                        hypotenuse: 0,
+                        angle: 0,
+                        value: 0
+                    };
+
+                    currentValue.value = values[i].value;
+                    currentValue.left = leftOffset;
+                    leftOffset += base;
+
+                    currentValue.bottom = (widgetSize - pointSize) * (currentValue.value / topMostPoint);
+                    nextPoint = (widgetSize - pointSize) * (values[i + 1].value / topMostPoint);
+
+                    rise = currentValue.bottom - nextPoint;
+                    currentValue.hypotenuse = Math.sqrt((base * base) + (rise * rise));
+                    currentValue.angle = radiansToDegrees(Math.asin(rise / currentValue.hypotenuse));
+
+                    cssValues.push(currentValue);
+                }
+
+                var lastPoint = {
+                    left: leftOffset,
+                    bottom: (widgetSize - pointSize) * (values[values.length - 1].value / topMostPoint),
+                    hypotenuse: 0,
+                    angle: 0,
+                    value: values[values.length - 1].value
+                };
+
+                cssValues.push(lastPoint);
+
+                return cssValues;
+            }
+
+            const sortValues = values => values.sort((a, b) => b.value - a.value)
+
+            const radiansToDegrees = (rads) => rads * (180 / Math.PI)
+
+            const sum = (total, value) => total + value.value
+
+
+            function render(data, container) {
+                data.forEach((item) => {
+                    let markup = createListItem(item);
+                    let listItem = document.createElement("li");
+                    listItem.style.cssText = `--x: ${item.left}px; --y: ${item.bottom}px`;
+                    listItem.innerHTML = markup;
+                    container.appendChild(listItem);
+                });
+            }
+
+            function createListItem(item) {
+                return `
+                                                                      <div class="data-point" data-value="${item.value}"></div>
+                                                                      <div class="line-segment" style="--hypotenuse: ${item.hypotenuse}; --angle:${item.angle};"></div>
+                                                                      `;
+            }
+
+            render(formatLineChartData(chartValues, 200), document.getElementById('line-chart'))</script>
+    </div>
+</div>
