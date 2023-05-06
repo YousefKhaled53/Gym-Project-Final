@@ -45,15 +45,10 @@
                             <li class="scroll-to-section"><a href="#portfolio">Statistics</a></li>
                             <li class="profile">
                                 <img src="images/coach1.jpg" alt="Profile Picture">
-                                <a asp-page="profile">
-                                    <span>yousef khaled</span>
+                                <a asp-page="profile" asp-route-name="@ViewData["username_coming_from_login"]">
+                                    <span>@ViewData["username_coming_from_login"]</span>
                                 </a>
                             </li>
-
-
-
-
-
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

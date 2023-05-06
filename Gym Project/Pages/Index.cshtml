@@ -9,10 +9,10 @@
         <h2 style="color:#2a2a2a">Login</h2>
         <form method="post" asp-page="/homepage_2">
             <label for="username" >User name</label>
-            <input type="text" id="username" name="username" required  @*asp-for="@Model.usrname_from_login" *@>
+            <input type="text" id="username" name="username" required  >
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required @*asp-for="@Model.password_from_login"*@>
+            <input type="password" id="password" name="password" required >
 
             <input type="submit" value="Login" asp-page-handler="login"  >
 
@@ -56,9 +56,9 @@
              <label>Gender:</label>
 
            <div class="form-row">
-                <select typeof="month" id="month-input" name="month">
-                    <option value="01">Male</option>
-                    <option value="02">Female</option>
+                <select typeof="month" id="month-input" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                     </select>
             </div>
             <label for="email">Email:</label>
@@ -69,7 +69,7 @@
             <input type="password" id="password" name="password" required>
             <label for="confirm-password">Confirm Password:</label>
             <input type="password" id="confirm-password" name="confirm-password" required>
-            <input type="submit" value="Signup">
+            <input type="submit" value="Signup" asp-page-handler="sign" >
 
             <div class="form-links">
 <a href="#" onclick="openLoginForm(); closeSignupForm()">Already have an account?</a>            </div>
@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="border-first-button scroll-to-section">
-                                        <button href="#" onclick="openLoginForm()">Join us</button>
+                                        <button href="#" onclick="openSignupForm()">Join us</button>
                                     </div>
                                 </div>
                             </div>

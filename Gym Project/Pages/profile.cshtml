@@ -1,9 +1,8 @@
 ﻿@page
-@model Gym_Project.Pages.homepage_2Model
+@model Gym_Project.Pages.profileModel
 @{
     ViewData["Title"] = "Home page";
-    Layout = "_layout3"; 
-
+   Layout = "_layout3"; 
 }
 <div class="container emp-profile">
     <form method="post">
@@ -20,7 +19,7 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <h1>
-                        Yousef Khaled
+                        @Model.name
                     </h1>
                     <h4>
                         Student
@@ -41,7 +40,7 @@
                                 <label>First Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="name" name="name" type="text" value="Yousef" readonly class="innput">
+                                <input id="name" name="firstname" type="text" value="@Model.specific_user_data_table.Rows[0][0]" readonly class="innput">
                                 <button class="btn" id="edit-name-btn" type="button">
                                     <span class="icon">
                                         <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
@@ -57,7 +56,7 @@
                                 <label>Last Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="naame" name="naame" type="text" value="Khaled" readonly class="innput">
+                                <input id="naame" name="lname" type="text" value="@Model.specific_user_data_table.Rows[0][1]" readonly class="innput">
                                 <button class="btn" id="edit-naame-btn" type="button">
                                     <span class="icon">
                                         <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
@@ -73,7 +72,7 @@
                                 <label>E-mail</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="mail" name="mail" type="text" value="s-yousef.shehata@zewailcity.edu.eg" readonly class="innput">
+                                <input id="mail" name="mail" type="text" value="@Model.specific_user_data_table.Rows[0][5]" readonly class="innput">
                                 <button class="btn" id="edit-mail-btn" type="button">
                                     <span class="icon">
                                         <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
@@ -89,7 +88,7 @@
                                 <label>Phone number</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="phone" name="phone" type="text" value="01065140932" readonly class="innput">
+                                <input id="phone" name="phone" type="text" value="soon" readonly class="innput">
                                 <button class="btn" id="edit-phone-btn" type="button">
                                     <span class="icon">
                                         <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
@@ -105,7 +104,7 @@
                                 <label>Class</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="claass" name="claass" type="text" value="2021" readonly class="innput">
+                                <input id="claass" name="claass" type="text" value="soon" readonly class="innput">
                                 <button class="btn" id="edit-claass-btn" type="button">
                                     <span class="icon">
                                         <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
@@ -121,7 +120,7 @@
                                 <label>Password</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="pass" name="pass" type="password" value="123456789" readonly class="innput">
+                                <input id="pass" name="pass" type="password" value="@Model.specific_user_data_table.Rows[0][8]" readonly class="innput">
                                 <button class="btn" id="edit-pass-btn" type="button">
                                     <span class="icon">
                                         <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
@@ -137,15 +136,8 @@
                                 <label>User Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input id="user" name="user" type="text" value="s-yousefKhaled" readonly class="innput">
-                                <button class="btn" id="edit-user-btn" type="button">
-                                    <span class="icon">
-                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
-                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
-                                        </svg>
-                                    </span>
-                                    <span class="text">Edit</span>
-                                </button>
+                                <input id="user" name="username" type="text" value="@Model.specific_user_data_table.Rows[0][7]" readonly class="innput">
+                               
                             </div>
                         </div>
 
@@ -186,6 +178,71 @@
                                 </span>
                                 <span class="text">Edit</span>
                             </button>                                <button id="save-button" style="display:none;" type="button">Save</button>
+                        </div>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Weight</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="weight" name="weight" type="number" value="@Model.specific_user_bodydata_data_table.Rows[0][4]" readonly class="innput">
+                                <button class="btn" id="edit-weight-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Height</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="height" name="height" type="number" value="@Model.specific_user_bodydata_data_table.Rows[0][1]" readonly class="innput">
+                                <button class="btn" id="edit-height-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Muscle mass</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="muscle" name="muscle" type="number" value="@Model.specific_user_bodydata_data_table.Rows[0][2]" readonly class="innput">
+                                <button class="btn" id="edit-muscle-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Fat percentage</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="fat" name="fat" type="number" value="@Model.specific_user_bodydata_data_table.Rows[0][3]" readonly class="innput">
+                                <button class="btn" id="edit-fat-btn" type="button">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 512 512" fill="#fff" width="20" height="20">
+                                            <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </button>
+                            </div>
                         </div>
 
                         <script>
@@ -232,6 +289,11 @@
                 </div>
             </div>
         </div>
+        
+        <button class="btn"  asp-page-handler="save" >
+           Save
+        </button>
+
     </form>
 </div>
 <script>
@@ -311,6 +373,49 @@
     });
     userInput.addEventListener('blur', () => {
         userInput.setAttribute('readonly', true);
+    });
+
+
+
+     const weightInput = document.getElementById('weight');
+    const editweightBtn = document.getElementById('edit-weight-btn');
+
+    editweightBtn.addEventListener('click', () => {
+        weightInput.removeAttribute('readonly');
+        weightInput.focus();
+    });
+    weightInput.addEventListener('blur', () => {
+        weightInput.setAttribute('readonly', true);
+    });
+     const heightInput = document.getElementById('height');
+    const editheightBtn = document.getElementById('edit-height-btn');
+
+    editheightBtn.addEventListener('click', () => {
+        heightInput.removeAttribute('readonly');
+        heightInput.focus();
+    });
+    heightInput.addEventListener('blur', () => {
+        heightInput.setAttribute('readonly', true);
+    });
+     const muscleInput = document.getElementById('muscle');
+    const editmuscleBtn = document.getElementById('edit-muscle-btn');
+
+    editmuscleBtn.addEventListener('click', () => {
+        muscleInput.removeAttribute('readonly');
+        muscleInput.focus();
+    });
+    muscleInput.addEventListener('blur', () => {
+        muscleInput.setAttribute('readonly', true);
+    });
+    const fatInput = document.getElementById('fat');
+    const editfatBtn = document.getElementById('edit-fat-btn');
+
+    editfatBtn.addEventListener('click', () => {
+        fatInput.removeAttribute('readonly');
+        fatInput.focus();
+    });
+    fatInput.addEventListener('blur', () => {
+        fatInput.setAttribute('readonly', true);
     });
 
    

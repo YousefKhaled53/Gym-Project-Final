@@ -1,6 +1,8 @@
 ﻿using Gym_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace Gym_Project.Pages
 {
@@ -41,6 +43,36 @@ namespace Gym_Project.Pages
                 return Page();
             }
 		}
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public string day_bd{ get; set; }
+        public string month_bd { get; set; }
+        public string year_bd { get; set; }
+        public string Gender { get; set; }
+        public string email { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string confirmpassword { get; set; }
+        public void OnPostSign()
+		{
+			first_name = Request.Form["first-name"];
+			last_name = Request.Form["last-name"];
+			day_bd = Request.Form["day"];
+			month_bd = Request.Form["month"];
+			year_bd = Request.Form["year"];
+			Gender = Request.Form["gender"];
+			email = Request.Form["email"];
+			username = Request.Form["username"];
+			password = Request.Form["password"];
+			confirmpassword = Request.Form["confirm-password"];
+			string birthdate= day_bd+"-"+month_bd+"-"+year_bd;
+			if (password == confirmpassword)
+			{
+				db.adduser(first_name,last_name,birthdate,Gender,email,username,password);
+			}
+			
+		}
+
 		
 	}
 }

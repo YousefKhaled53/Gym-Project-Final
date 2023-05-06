@@ -1,6 +1,7 @@
 using Gym_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Gym_Project.Pages
 {
@@ -13,7 +14,9 @@ namespace Gym_Project.Pages
         private readonly GYM_DB db;
 
         [BindProperty(SupportsGet = true)]
-        public string username_coming_from_login { get; set; }    
+        [ViewData]
+        public string username_coming_from_login { get; set; }
+        
         public homepage_2Model(ILogger<IndexModel> logger, GYM_DB db)
         {
             _logger = logger;
@@ -24,5 +27,6 @@ namespace Gym_Project.Pages
         {
             body_info= new body_info(username_coming_from_login,db.getweight(username_coming_from_login),db.getheight(username_coming_from_login),db.getmusclemass(username_coming_from_login),db.getfatpercentage(username_coming_from_login));
         }
+
     }
 }

@@ -164,11 +164,17 @@ assigend_to VARCHAR(500) DEFAULT NULL
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
 values('abdo','ahmed','6-26-2003','male','abd@zc.city','student','aboshareb','2003')
 
-select*from user_gym
-
-select*from Body_info
-
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
 values('aboshareb',184,44,15,90)
 
- 
+insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
+values('omar',184,44,15,90)
+
+
+ select*from user_gym
+ select* from Body_info
+
+ select * from Body_info where Body_info .user_name = 'aboshareb'
+select*from user_gym where user_gym.user_name='aboshareb'
+
+
