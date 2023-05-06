@@ -19,7 +19,7 @@
             <div class="form-links">
                 <a href="#">Forgot password?</a>
                 <span>|</span>
-                <a href="#">Create account</a>
+                <a href="#" onclick="openSignupForm(); closeLoginForm()">Create account</a>
             </div>
         </form>
     </div>
@@ -53,6 +53,14 @@
                 </select>
                 <input type="number" id="year-input" name="year" value="2000" min="1900" max="2023">
             </div>
+            <label>Gender:</label>
+
+            <div class="form-row">
+                <select typeof="month" id="month-input" name="month">
+                    <option value="01">Male</option>
+                    <option value="02">Female</option>
+                </select>
+            </div>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="username">User Name:</label>
@@ -63,7 +71,7 @@
                 <input type="password" id="confirm-password" name="confirm-password" required>
                 <input type="submit" value="Signup">
             <div class="form-links">
-                <a onclick="openLoginForm()">Already have an account?</a>
+                <a href="#" onclick="openLoginForm(); closeSignupForm()">Already have an account?</a>
             </div>
         </form>
 
