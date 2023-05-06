@@ -33,11 +33,11 @@ namespace Gym_Project.Pages
             }
 			else if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "Coach")
 			{
-				return RedirectToPage("/homepage_3");
+				return RedirectToPage("/homepage_3", new { username_coming_from_login = usrname_from_login });
             }
             else if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "SU")
             {
-                return RedirectToPage("/homepage_4");
+                return RedirectToPage("/homepage_4", new { username_coming_from_login = usrname_from_login });
             }
             else {
                 return Page();

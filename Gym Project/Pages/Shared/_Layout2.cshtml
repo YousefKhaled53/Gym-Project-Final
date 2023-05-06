@@ -45,7 +45,7 @@
                             <li class="scroll-to-section"><a href="#portfolio">Feedbacks</a></li>
                             <li class="profile">
                                 <img src="images/Mohamed.jpg" alt="Profile Picture">
-                                <a asp-page="profile">
+                                <a asp-page="profile" asp-route-name="@ViewData["username_coming_from_login"]" >
                                     <span>Mohamed Sayed</span>
                                 </a>
                             </li>

@@ -35,7 +35,7 @@ user_name VARCHAR (12) FOREIGN KEY REFERENCES user_gym,
 weight_ INT 
 height INT NOT NULL,
 Muscles_Percentage INT NOT NULL,
-Fats_mass INT NOT NULL,
+Fats_Percentage INT NOT NULL,
 );
 ---- cause Previous Injuries is multivalued ---
 CREATE TABLE Previous_Injuries (
@@ -162,22 +162,23 @@ assigend_to VARCHAR(500) DEFAULT NULL
 
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
-values('sara','ezaby','6-26-2003','female','sara@zc.city','SU','ezaby','123456789')
-
+values('abdulrahman','ahmed','6-26-2003','male','s-abdel-rahman.ahmed@zewailcity.edu.eg','student','aboshareb','2003')
+-- this user is used to test the home page for a default user 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('ezaby',0,0,0,0)
+values('aboshareb',183,44,14,90) 
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
-values('mohamed','sayed','9-2-1999','male','mzakria@zewailcity.edu.eg','Coach','zee','9090')
-
+values('mohamed','sayed','12-6-1999','male','s-mohamed.sayed@zewailcity.edu.eg','Coach','Zee','1234')
+-- this user is used to test the home page for the captain 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('zee',0,0,0,0)
+values('Zee',190,48,24,100)
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
-values('abdulrahman','ahmed','6-26-2003','male','s-abdel-rahman.ahmedzewailcity.edu.eg','student','aboshareb','01212624129')
-
+values('sara','Ezaby','9-21-1988','female','s-sarah.ezaby@zewailcity.edu.eg','SU','sarah','1234')
+-- this user is to test the home page of the admistration officer (student affaires in this example )
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('aboshareb',183,44,14,90)
+values('sarah',173,35,30,88)
 
-
-
+-- please execute the code to create the data base then execute the insert queries 
+-- you can login with each specific user and it will be redirected to its page automatically 
+-- you can also test it by signing up (makin	g a new user) but it will be a default user with default body info data that can be edited in his home page 

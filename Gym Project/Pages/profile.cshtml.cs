@@ -13,7 +13,7 @@ namespace Gym_Project.Pages
         [BindProperty(SupportsGet =true)]
         public string name { get; set; }
         public user user { get; set; }
-        //public body_info body { get; set; } 
+
         
         private readonly ILogger<IndexModel> _logger;
         public profileModel(ILogger<IndexModel> logger,GYM_DB db)
