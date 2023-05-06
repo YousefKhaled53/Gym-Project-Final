@@ -53,7 +53,7 @@ namespace Gym_Project.Pages
         public string username { get; set; }
         public string password { get; set; }
         public string confirmpassword { get; set; }
-        public void OnPostSign()
+        public IActionResult OnPostSign()
 		{
 			first_name = Request.Form["first-name"];
 			last_name = Request.Form["last-name"];
@@ -65,11 +65,13 @@ namespace Gym_Project.Pages
 			username = Request.Form["username"];
 			password = Request.Form["password"];
 			confirmpassword = Request.Form["confirm-password"];
-			string birthdate= day_bd+"-"+month_bd+"-"+year_bd;
+			string birthdate= month_bd+ "-"+ day_bd + "-" +year_bd;
 			if (password == confirmpassword)
 			{
 				db.adduser(first_name,last_name,birthdate,Gender,email,username,password);
-			}
+                return RedirectToPage("/homepage_2", new { username_coming_from_login = username });
+            }
+			else { return Page(); }
 			
 		}
 

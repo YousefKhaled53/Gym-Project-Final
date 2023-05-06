@@ -162,19 +162,22 @@ assigend_to VARCHAR(500) DEFAULT NULL
 
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
-values('abdo','ahmed','6-26-2003','male','abd@zc.city','student','aboshareb','2003')
+values('sara','ezaby','6-26-2003','female','sara@zc.city','SU','ezaby','123456789')
 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('aboshareb',184,44,15,90)
+values('ezaby',0,0,0,0)
+
+insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
+values('mohamed','sayed','9-2-1999','male','mzakria@zewailcity.edu.eg','Coach','zee','9090')
 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('omar',184,44,15,90)
+values('zee',0,0,0,0)
 
+insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
+values('abdulrahman','ahmed','6-26-2003','male','s-abdel-rahman.ahmedzewailcity.edu.eg','student','aboshareb','01212624129')
 
- select*from user_gym
- select* from Body_info
+insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
+values('aboshareb',183,44,14,90)
 
- select * from Body_info where Body_info .user_name = 'aboshareb'
-select*from user_gym where user_gym.user_name='aboshareb'
 
 

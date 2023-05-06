@@ -122,11 +122,14 @@ namespace Gym_Project.Models
         public void adduser(string fname,string lname,string bd,string g, string email,string username,string password)
         {
             string q = "insert into user_gym(first_name, last_name, birthday, gender, email, job, user_name, password_) values('" + fname + "', '" + lname + "', '" + bd + "', '" + g + "', '" + email + "', 'student', '" + username + "', '" + password + "')";
+            string q2 = "insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_) values('"+username+"',0,0,0,0)";
             try
             {
                 connection.Open();
                 SqlCommand comm = new SqlCommand(q, connection);
+                SqlCommand comm2 = new SqlCommand(q2, connection);
                 object result = comm.ExecuteNonQuery();
+                object result2 = comm2.ExecuteNonQuery();
             }
             catch (SqlException ex) { }
             finally { connection.Close(); }
