@@ -16,11 +16,11 @@
                         <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h6>Welcome, Yousef!</h6>
-                                    <h2>Your current weight is: 65kg</h2>
-                                    <h2>Your current Height is: 170m</h2>
-                                    <h2>Your fat percentage is: 12%</h2>
-                                    <h2>Your muscle mass is: 34kg</h2>
+                                    <h6>Welcome, @Model.username_coming_from_login </h6>
+                                    <h2>Your current weight is: @Model.body_info.weight KG </h2>
+                                    <h2>Your current Height is: @Model.body_info.height CM  </h2>
+                                        <h2>Your fat percentage is: @Model.body_info.fat_percent % </h2>
+                                    <h2>Your muscle mass is: @Model.body_info.muscle_mass  KG</h2>
                                     <p>''</p>
                                 </div>
                             </div>

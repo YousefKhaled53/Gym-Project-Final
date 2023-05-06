@@ -8,18 +8,18 @@
         <span class="close" onclick="closeLoginForm()">&times;</span>
         <h2 style="color:#2a2a2a">Login</h2>
         <form method="post" asp-page="/homepage_2">
-            <label for="username">User name</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username" >User name</label>
+            <input type="text" id="username" name="username" required  @*asp-for="@Model.usrname_from_login" *@>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required @*asp-for="@Model.password_from_login"*@>
 
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" asp-page-handler="login"  >
 
             <div class="form-links">
                 <a href="#">Forgot password?</a>
                 <span>|</span>
-                <a href="#">Create account</a>
+                <a href="#" onclick="openSignupForm(); closeLoginForm()">Create account</a>
             </div>
         </form>
     </div>
@@ -28,21 +28,51 @@
     <div class="modal-content">
         <span class="close" onclick="closeSignupForm()">&times;</span>
         <h2 style="color:#2a2a2a">Signup</h2>
-        <form method ="post" asp-page="/homepage_4">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="username">User name</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <label for="password">Confirm Password</label>
-            <input type="password" id="password" name="password" required>
+        <form method="post" asp-page="/homepage_4">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+            <label>BirthDate:</label>
 
+            <div class="form-row">
+                <input type="number" id="day-input" name="day" value="01" min="1" max="31">
+                <select typeof="month" id="month-input" name="month">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <input type="number" id="year-input" name="year" value="2000" min="1900" max="2023">
+            </div>
+             <label>Gender:</label>
+
+           <div class="form-row">
+                <select typeof="month" id="month-input" name="month">
+                    <option value="01">Male</option>
+                    <option value="02">Female</option>
+                    </select>
+            </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
             <input type="submit" value="Signup">
 
             <div class="form-links">
-                <a href="#">Already have an account?</a>
-            </div>
+<a href="#" onclick="openLoginForm(); closeSignupForm()">Already have an account?</a>            </div>
         </form>
     </div>
 </div>
