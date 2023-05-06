@@ -1727,7 +1727,7 @@ form label {
 }
 
 form input[type="email"], form input[type="text"],
-form input[type="password"]{
+form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -1735,47 +1735,6 @@ form input[type="password"]{
     border-radius: 4px;
     font-size: 16px;
 }
-.birthdate-container {
-    display: flex;
-    align-items: center;
-}
-
-.birthdate-inputs {
-    display: flex;
-    gap: 10px;
-}
-.form-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-    .form-row label {
-        margin-right: 10px;
-    }
-
-.form-links {
-    margin-top: 20px;
-}
-
-select {
-    font-size: 16px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Style for input element */
-input[type=number] {
-    font-size: 16px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-
 
 
 form input[type="submit"] {
