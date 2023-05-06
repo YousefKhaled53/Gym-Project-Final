@@ -1008,7 +1008,16 @@ Banner Style
   overflow: hidden;
 }
 
-
+.main-banner:after {
+    background-image: url(../images/back1.jpg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 786px;
+    height: 1217px;
+    z-index: 0;
+}
 
     .main-banner:before {
         content: '';
