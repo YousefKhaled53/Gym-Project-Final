@@ -182,3 +182,20 @@ values('sarah',173,35,30,88)
 -- please execute the code to create the data base then execute the insert queries 
 -- you can login with each specific user and it will be redirected to its page automatically 
 -- you can also test it by signing up (makin	g a new user) but it will be a default user with default body info data that can be edited in his home page 
+
+
+INSERT INTO Subscription (user_name, sub_num, type_sub, price, Period_sub, Start_in, discount_price)
+VALUES ('aboshareb', 1, 'Premium', '50', '1 month', '07-05-2023', 0);
+
+select *from user_gym where exists(select * from Subscription where user_name='dfs')
+
+create procedure addsubscribtion @usname varchar(30) , @num int ,@price varchar(30), @period varchar(30) , @start varchar(10)
+AS
+delete Subscription where user_name=@usname
+INSERT INTO Subscription (user_name, sub_num, type_sub, price, Period_sub, Start_in, discount_price)
+VALUES (@usname, @num, 'default', @price, @period, @start, 0);
+Go
+
+Exec addsubscribtion @usname='Zee' , @num =10 ,@price ='450', @period ='3 month' , @start ='05-17-2023'
+
+select* from Subscription

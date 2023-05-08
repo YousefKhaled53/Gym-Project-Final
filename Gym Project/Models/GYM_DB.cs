@@ -16,10 +16,7 @@ namespace Gym_Project.Models
 			connection = new SqlConnection(connString);
 		}
 
-		public void add_user()
-		{
-
-		}
+		
 		public string getpassword(string username) {
 			string pass = ".";
 			string q = "select password_ from user_gym where user_gym.user_name='" + username + "'";
@@ -185,6 +182,20 @@ namespace Gym_Project.Models
             catch (SqlException ex) { }
             finally { connection.Close(); }
             return dt;
+        }
+        public void add_subscribtion_to_user(string un,int n,string price,string per, string sd)
+        {
+            string q = "Exec addsubscribtion @usname='"+un+"' , @num ="+n+" ,@price ='"+price+"', @period ='"+per+"' , @start ='"+sd+"'";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+
+                comm.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
         }
 
     }

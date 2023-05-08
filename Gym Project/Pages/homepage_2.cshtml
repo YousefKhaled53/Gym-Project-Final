@@ -33,35 +33,38 @@
 </div>
 
 <div id="about" class="about section">
-    <div class="container">
+    <form method="post">
+        <div class="container">
         <div class="card-container">
-            <div class="card">
+            <div class="card" >
                 <h6>Monthly plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
                 <p>150 EGP/Month</p>
-                <div class="border-first-button"><button disabled>Subscribe</button></div>
+                <div class="border-first-button"><button  type="submit" name="onemonthsub " asp-page-handler="m1">Subscribe1</button> </div>
             </div>
             <div class="card">
                 <h6>3 Months plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>120 EGP/Month</p>
-                <div class="border-first-button"><button>Subscirbe</button></div>
+                <p>250 EGP/Month</p>
+                    <div class="border-first-button"><button asp-page-handler="m3">Subscirbe</button></div>
             </div>
             <div class="card">
                 <h6>6 Months plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>100 EGP/Month</p>
-                <div class="border-first-button"><button>Subscirbe</button></div>
+                <p>450 EGP/Month</p>
+                    <div class="border-first-button"><button asp-page-handler="m6">Subscirbe</button></div>
             </div>
             <div class="card">
                 <h6>Yearly plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>75 EGP/Month</p>
-                <div class="border-first-button"><button>Subscirbe</button></div>
+                <p>800 EGP/Month</p>
+                <div class="border-first-button"><button asp-page-handler="Year_subs" >Subscirbe</button></div>
             </div>
         </div>
     </div>
+    </form>
 </div>
+
 <script>
     // Get all the buttons inside the cards
     const cards = document.querySelectorAll('.card');
@@ -77,7 +80,7 @@
                     }
                 });
 
-                button.disabled = true;
+                button.disabled = false;
             });
         });
     });</script>
