@@ -291,12 +291,17 @@
             </div>
         </div>
         
-        <button class="btn"  asp-page-handler="save" >
+        <button class="btn" onclick="myFunction()" asp-page-handler="save">
            Save
         </button>
 
     </form>
 </div>
+<script>
+    function myFunction() {
+        alert(" saved succefuly");
+    }
+</script>
 <script>
     const nameInput = document.getElementById('name');
     const editNameBtn = document.getElementById('edit-name-btn');

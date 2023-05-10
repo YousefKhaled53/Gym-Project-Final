@@ -229,6 +229,20 @@ namespace Gym_Project.Models
             finally { connection.Close(); }
             return dt;
         }
-
+        public string getemail(string username)
+        {
+            string job = ".";
+            string q = "select email from user_gym where user_gym.user_name='" + username + "'";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                job = (string)comm.ExecuteScalar();
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return job;
+        }
+        
     }
 }

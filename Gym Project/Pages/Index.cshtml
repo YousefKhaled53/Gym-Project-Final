@@ -17,7 +17,7 @@
             <input type="submit" value="Login" asp-page-handler="login"  >
             <div class="form-links">
 
-                <button class="btn btn-link" asp-page-handler="Forgotpassword">  Forgot password?</button>
+                <button class="btn btn-link" onclick="myFunction()" asp-page-handler="Forgotpassword">  Forgot password?</button>
                 <span>|</span>
                 <a href="#" onclick="openSignupForm(); closeLoginForm()">Create account</a>
             </div>
@@ -76,6 +76,12 @@
         </form>
     </div>
 </div>
+<script>
+    function myFunction() {
+        alert("A PASSWORD SENT TO YOUR EMAIL (check spam) ");
+    }
+</script>
+
 <script>
     function openLoginForm() {
         document.getElementById("loginForm").style.display = "block";
