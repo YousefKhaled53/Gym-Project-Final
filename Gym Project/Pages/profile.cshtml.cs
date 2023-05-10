@@ -14,7 +14,10 @@ namespace Gym_Project.Pages
         public string name { get; set; }
         public user user { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string piclink { get; set; }
         
+
         private readonly ILogger<IndexModel> _logger;
         public profileModel(ILogger<IndexModel> logger,GYM_DB db)
         {

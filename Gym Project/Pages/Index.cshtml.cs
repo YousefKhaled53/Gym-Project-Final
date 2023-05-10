@@ -82,28 +82,28 @@ namespace Gym_Project.Pages
 			else { return Page(); }
 			
 		}
-		//public void OnPostForgotpassword()
-		//{
-		//          string from = "abdoaboshareb8@gmail.com";
-		//          string from_pass = "bafpjaukobocrpnq";
-		//          MailMessage msg = new MailMessage();
-		//          msg.From = new MailAddress(from); // Specify the sender's email address
-		//          msg.Subject = "YOUR ZC GYM ACCOUNT PASSWORD ";
-		//          msg.To.Add(new MailAddress("s-abdel-rahman.ahmed@zewailcity.edu.eg"));
-		//          msg.Body = "<html><body> your password is </body></html>";
-		//          msg.IsBodyHtml = true;
-		//          var smtpClient = new SmtpClient("smtp.gmail.com")
-		//          {
-		//              Port = 587,
-		//              Credentials = new NetworkCredential(from, from_pass),
-		//              EnableSsl = true,
-		//          };
-		//          smtpClient.Send(msg);
-		//      }
-
-		
+		public void OnPostForgotpassword()
+		{
+			string from = "abdoaboshareb8@gmail.com";
+			string from_pass = "bafpjaukobocrpnq";
+			MailMessage msg = new MailMessage();
+			msg.From = new MailAddress(from); // Specify the sender's email address
+			msg.Subject = "YOUR ZC GYM ACCOUNT PASSWORD ";
+			msg.To.Add(new MailAddress("s-abdel-rahman.ahmed@zewailcity.edu.eg"));
+			msg.Body = "<html><body> your password is </body></html>";
+			msg.IsBodyHtml = true;
+			var smtpClient = new SmtpClient("smtp.gmail.com")
+			{
+				Port = 587,
+				Credentials = new NetworkCredential(from, from_pass),
+				EnableSsl = true,
+			};
+			smtpClient.Send(msg);
+		}
 
 
 
-    }
+
+
+	}
 }
