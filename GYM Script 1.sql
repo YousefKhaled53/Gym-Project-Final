@@ -36,6 +36,7 @@ weight_ INT
 height INT NOT NULL,
 Muscles_Percentage INT NOT NULL,
 Fats_Percentage INT NOT NULL,
+date_added_in date, -- represents the date data added in
 );
 ---- cause Previous Injuries is multivalued ---
 CREATE TABLE Previous_Injuries (
@@ -159,13 +160,20 @@ Comment VARCHAR(500) DEFAULT Null,
 star_count TINYINT CHECK (star_count >= 0 AND star_count <= 5) DEFAULT NULL, 
 assigend_to VARCHAR(500) DEFAULT NULL
 );
+CREATE TABLE Feedback_from_user (
+user_name VARCHAR (12) FOREIGN KEY REFERENCES user_gym,
+facilitis_rate int ,
+coach_rate int,
+general_comment varchar(200)
+);
 
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
 values('abdulrahman','ahmed','6-26-2003','male','s-abdel-rahman.ahmed@zewailcity.edu.eg','student','aboshareb','2003')
 -- this user is used to test the home page for a default user 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('aboshareb',183,44,14,90) 
+values('aboshareb',183,41,11,82) 
+
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
 values('mohamed','sayed','12-6-1999','male','s-mohamed.sayed@zewailcity.edu.eg','Coach','Zee','1234')
@@ -176,8 +184,8 @@ values('Zee',190,48,24,100)
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
 values('sara','Ezaby','9-21-1988','female','s-sarah.ezaby@zewailcity.edu.eg','SU','sarah','1234')
 -- this user is to test the home page of the admistration officer (student affaires in this example )
-insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('sarah',173,35,30,88)
+insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_,date_added_in)
+values('sarah',173,35,30,88,'8-8-2019')
 
 -- please execute the code to create the data base then execute the insert queries 
 -- you can login with each specific user and it will be redirected to its page automatically 
@@ -198,4 +206,18 @@ Go
 
 Exec addsubscribtion @usname='Zee' , @num =10 ,@price ='450', @period ='3 month' , @start ='05-17-2023'
 
-select* from Subscription
+create procedure add_Feedback_from_user @usname varchar(30) , @Fac_rate int , @c_rate int,@comment varchar(200)
+AS
+delete Feedback_from_user where user_name=@usname
+INSERT INTO Feedback_from_user(user_name, facilitis_rate,coach_rate,general_comment)
+VALUES (@usname, @Fac_rate, @c_rate,@comment);
+Go
+
+Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
+
+
+SELECT TOP 1 * FROM Body_info
+WHERE user_name = 'aboshareb'
+ORDER BY date_added_in DESC;
+
+	

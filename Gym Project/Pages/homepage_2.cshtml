@@ -19,8 +19,9 @@
                                     <h6>Welcome, @Model.username_coming_from_login </h6>
                                     <h2>Your current weight is: @Model.body_info.weight KG </h2>
                                     <h2>Your current Height is: @Model.body_info.height CM  </h2>
-                                        <h2>Your fat percentage is: @Model.body_info.fat_percent % </h2>
+                                     <h2>Your fat percentage is: @Model.body_info.fat_percent % </h2>
                                     <h2>Your muscle mass is: @Model.body_info.muscle_mass  KG</h2>
+                                    @*<h2>You are currently subscribed in : </h2>*@
                                     <p>''</p>
                                 </div>
                             </div>
@@ -39,25 +40,27 @@
             <div class="card" >
                 <h6>Monthly plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>150 EGP/Month</p>
-                <div class="border-first-button"><button  type="submit" name="onemonthsub " asp-page-handler="m1">Subscribe1</button> </div>
+                <p>150 EGP/Month for students </p>
+                <div class="border-first-button">
+                    <input type="hidden" name="username" value="@Model.username_coming_from_login" />
+                    <button  type="submit" name="onemonthsub " asp-page-handler="m1">Subscribe</button> </div>
             </div>
             <div class="card">
                 <h6>3 Months plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>250 EGP/Month</p>
+                <p>250 EGP/Month for students </p>
                     <div class="border-first-button"><button asp-page-handler="m3">Subscirbe</button></div>
             </div>
             <div class="card">
                 <h6>6 Months plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>450 EGP/Month</p>
+                <p>450 EGP/Month for students </p>
                     <div class="border-first-button"><button asp-page-handler="m6">Subscirbe</button></div>
             </div>
             <div class="card">
                 <h6>Yearly plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>800 EGP/Month</p>
+                <p>800 EGP/Month for students </p>
                 <div class="border-first-button"><button asp-page-handler="Year_subs" >Subscirbe</button></div>
             </div>
         </div>
@@ -88,7 +91,7 @@
 <div id="services" class="services section">
     <div class="container">
         <div class="feedback-form">
-            <form>
+            <form method="post">
                 <div class="feedback-question">
                     <label for="facilities">How do you rate the gym facilities?</label>
                     <div class="rating">
@@ -139,11 +142,12 @@
                     <label for="comment">Comments about the gym:</label>
                     <textarea id="comment" name="comment"></textarea>
                 </div>
-                <div class="feedback-submit">
-                    <button class="button">
+                <div class="feedback-submit" >
+                    <input type="hidden" name="username" value="@Model.username_coming_from_login" />
+                    <button class="button" asp-page-handler="submit">
                         <span class="button_lg">
                             <span class="button_sl"></span>
-                            <span class="button_text">Submit</span>
+                            <span class="button_text" >Submit</span>
                         </span>
                     </button>
                 </div>

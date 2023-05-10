@@ -35,10 +35,21 @@ namespace Gym_Project.Pages
             user.email = Request.Form["mail"];
             user.password = Request.Form["pass"];
             user.username= Request.Form["username"];
+            DateTime add_date = DateTime.Now;
+            int day = add_date.Day;
+            int month = add_date.Month;
+            int year = add_date.Year;
+            string date = month + "-" + day + "-" + year;
             db.edituser(user.first_name,user.last_name,birthdate,user.email,user.username,user.password);
-            db.edituserbodydata(int.Parse(Request.Form["height"]), int.Parse(Request.Form["weight"]), int.Parse(Request.Form["muscle"]), int.Parse(Request.Form["fat"]), Request.Form["username"]);
+            db.edituserbodydata(int.Parse(Request.Form["height"]), int.Parse(Request.Form["weight"]), int.Parse(Request.Form["muscle"]), int.Parse(Request.Form["fat"]), Request.Form["username"],date);
             return RedirectToPage("/homepage_2", new { username_coming_from_login = user.username });
             
         }
+        public void OnPostChangepic()
+        {
+
+        }
+
     }
+
 }

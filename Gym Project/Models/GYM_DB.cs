@@ -47,7 +47,7 @@ namespace Gym_Project.Models
         public int getweight(string username)
         {
             int w = 0;
-            string q = "select weight_ from Body_info where Body_info.user_name='" + username + "'";
+            string q = "SELECT TOP 1 weight_ FROM Body_info\r\nWHERE user_name = '"+username+"'\r\nORDER BY date_added_in DESC;";
             try
             {
                 connection.Open();
@@ -65,7 +65,7 @@ namespace Gym_Project.Models
         public int getheight(string username)
         {
             int h = 0;
-            string q = "select height from Body_info where Body_info.user_name='" + username + "'";
+            string q = "SELECT TOP 1 height FROM Body_info\r\nWHERE user_name = '" + username + "'\r\nORDER BY date_added_in DESC;";
             try
             {
                 connection.Open();
@@ -83,7 +83,8 @@ namespace Gym_Project.Models
         public int getmusclemass(string username)
         {
             int mm = 0;
-            string q = "select Muscles_Percentage from Body_info where Body_info.user_name='" + username + "'";
+
+            string q = "SELECT TOP 1 Muscles_Percentage FROM Body_info\r\nWHERE user_name = '" + username + "'\r\nORDER BY date_added_in DESC;";
             try
             {
                 connection.Open();
@@ -101,7 +102,10 @@ namespace Gym_Project.Models
         public int getfatpercentage(string username)
         {
             int fp = 0;
-            string q = "select Fats_Percentage from Body_info where Body_info.user_name='" + username + "'";
+
+
+            string q = "SELECT TOP 1 Fats_Percentage FROM Body_info\r\nWHERE user_name = '" + username + "'\r\nORDER BY date_added_in DESC;";
+
             try
             {
                 connection.Open();
@@ -143,9 +147,9 @@ namespace Gym_Project.Models
             catch (SqlException ex) { }
             finally { connection.Close(); }
         }
-        public void edituserbodydata(int h, int w, int mm, int fp,string username)
+        public void edituserbodydata(int h, int w, int mm, int fp,string username,string date)
         {
-            string q = "update Body_info set  height = " + h+ ",weight_= " + w + ", fats_percentage = " + fp + ",Muscles_percentage = " + mm + " where Body_info .user_name = '"+username+"'";
+            string q = "insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_,date_added_in) values('"+username+"',"+h+","+mm+","+fp+","+w+",'"+date+"')";
             try
             {
                 connection.Open();
@@ -172,7 +176,7 @@ namespace Gym_Project.Models
         public DataTable return_users_bodydata(string username)
         {
             DataTable dt = new DataTable();
-            string q = " select * from Body_info where Body_info .user_name = '" + username + "'";
+            string q = " SELECT TOP 1 * FROM Body_info\r\nWHERE user_name = '"+username+"'\r\nORDER BY date_added_in DESC;";
             try
             {
                 connection.Open();
@@ -196,6 +200,34 @@ namespace Gym_Project.Models
             }
             catch (SqlException ex) { }
             finally { connection.Close(); }
+        }
+        public void add_feedback_from_user(string un, int Fr, int cr, string c)
+        {
+            string q = "Exec add_Feedback_from_user @usname='"+un+"',@Fac_rate="+Fr+",@c_rate="+cr+",@comment=' "+c+"'";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+
+                comm.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+        }
+        public DataTable return_users_Feedback()
+        {
+            DataTable dt = new DataTable();
+            string q = "select * from Feedback_from_user";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                dt.Load(comm.ExecuteReader());
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return dt;
         }
 
     }

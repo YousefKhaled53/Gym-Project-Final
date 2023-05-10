@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace Gym_Project.Pages
 {
@@ -26,24 +30,28 @@ namespace Gym_Project.Pages
 		}
 		public IActionResult OnPostLogin() {
 			usrname_from_login = Request.Form["username"];
-			password_from_login+= Request.Form["password"];
-			if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login)== "student")
+			password_from_login += Request.Form["password"];
+            
+            if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "student")
 			{
 				return RedirectToPage("/homepage_2", new { username_coming_from_login = usrname_from_login });
-            }
+			}
 			else if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "Coach")
 			{
 				return RedirectToPage("/homepage_3", new { username_coming_from_login = usrname_from_login });
-            }
-            else if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "SU")
-            {
-                return RedirectToPage("/homepage_4", new { username_coming_from_login = usrname_from_login });
-            }
-            else {
-                return Page();
-            }
+			}
+			else if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "SU")
+			{
+				return RedirectToPage("/homepage_4", new { username_coming_from_login = usrname_from_login });
+			}
+			else
+			{
+				return Page();
+			}
+
+
 		}
-        public string first_name { get; set; }
+		public string first_name { get; set; }
         public string last_name { get; set; }
         public string day_bd{ get; set; }
         public string month_bd { get; set; }
@@ -74,7 +82,28 @@ namespace Gym_Project.Pages
 			else { return Page(); }
 			
 		}
+		//public void OnPostForgotpassword()
+		//{
+		//          string from = "abdoaboshareb8@gmail.com";
+		//          string from_pass = "bafpjaukobocrpnq";
+		//          MailMessage msg = new MailMessage();
+		//          msg.From = new MailAddress(from); // Specify the sender's email address
+		//          msg.Subject = "YOUR ZC GYM ACCOUNT PASSWORD ";
+		//          msg.To.Add(new MailAddress("s-abdel-rahman.ahmed@zewailcity.edu.eg"));
+		//          msg.Body = "<html><body> your password is </body></html>";
+		//          msg.IsBodyHtml = true;
+		//          var smtpClient = new SmtpClient("smtp.gmail.com")
+		//          {
+		//              Port = 587,
+		//              Credentials = new NetworkCredential(from, from_pass),
+		//              EnableSsl = true,
+		//          };
+		//          smtpClient.Send(msg);
+		//      }
 
 		
-	}
+
+
+
+    }
 }
