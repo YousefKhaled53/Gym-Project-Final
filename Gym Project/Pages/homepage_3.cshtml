@@ -287,15 +287,15 @@
 <div id="services" class="services section">
     <div class="container">
         <div class="feedback-form">
-            <form>
+            <form method="post">
                 <div class="feedback-question">
                     <label for="facilities">Request type</label>
                     <div class="dropdown">
-                        <button class="dropbtn" onclick="showDropdown(event)">Select Type</button>
-                        <div class="dropdown-content" id="myDropdown">
-                            <a href="#" onclick="selectType(event, 'Maintainence')">Maintainence</a>
-                            <a href="#" onclick="selectType(event, 'Removal')">Removal</a>
-                            <a href="#" onclick="selectType(event, 'Add an equipment')">Add an equipment</a>
+                        <button class="dropbtn" AutoPostBack="false" onclick="showDropdown(event)">Select Type</button>
+                        <div class="dropdown-content" id="myDropdown" >
+                            <a href="#" onclick="selectType(event, 'adminstrative')">admistrative </a>
+                            
+                            <a href="#" onclick="selectType(event, 'financial')">Financial</a>
                         </div>
                     </div>
                     <input type="text" id="maintenance-type" name="maintenance-type" readonly>
@@ -335,10 +335,11 @@
                 </div>
                 <div class="feedback-comment">
                     <label for="comment">Request Comment:</label>
-                    <textarea id="comment" name="comment"></textarea>
+                    <textarea id="comment" name="comment" ></textarea>
                 </div>
                 <div class="feedback-submit">
-                    <button class="button">
+                    <input type="hidden" name ="un" value="@Model.username_coming_from_login"></input>
+                    <button href="#" class="button" onclick="myFunction()" asp-page-handler="submitrequest">
                         <span class="button_lg">
                             <span class="button_sl"></span>
                             <span class="button_text">Submit</span>
@@ -347,6 +348,11 @@
                 </div>
             </form>
         </div>
+        <script>
+            function myFunction() {
+                alert("Your request is sent succesfully ");
+            }
+        </script>
 
         <script>
             // select all the stars and the comment input
