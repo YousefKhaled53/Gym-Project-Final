@@ -31,119 +31,143 @@ namespace Gym_Project.Pages
         public void OnGet()
         {
             body_info= new body_info(username_coming_from_login,db.getweight(username_coming_from_login),db.getheight(username_coming_from_login),db.getmusclemass(username_coming_from_login),db.getfatpercentage(username_coming_from_login));
-            var chartData = @"
-
-{
-type: 'line',
-responsive: true,
-data:
-{
-labels: ['January', 'February', 'March', 'April','May','June','July','August','September','October','November','December'],
-datasets: [
-{
-label: 'Weight',
-data: [60, 65, 63, 65, 62, 63,60, 65, 63, 65, 62, 63],
-backgroundColor: [
-'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)'
-],
-borderColor: [
-'rgba(255, 99, 132, 1)',
-'rgba(54, 162, 235, 1)',
-'rgba(255, 206, 86, 1)',
-'rgba(75, 192, 192, 1)',
-'rgba(153, 102, 255, 1)',
-'rgba(255, 159, 64, 1)'
-],
-borderWidth: 1
-},
-{
-label: 'Height',
-data: [170, 171, 171, 172, 172, 172, 172, 172, 172, 173, 173, 173],
-backgroundColor: [
-'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)'
-],
-borderColor: [
-'rgba(255, 99, 132, 1)',
-'rgba(54, 162, 235, 1)',
-'rgba(255, 206, 86, 1)',
-'rgba(75, 192, 192, 1)',
-'rgba(153, 102, 255, 1)',
-'rgba(255, 159, 64, 1)'
-],
-borderWidth: 1
-},
-{
-label: 'Fat Percentage',
-data: [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9],
-backgroundColor: [
-'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)'
-],
-borderColor: [
-'rgba(255, 99, 132, 1)',
-'rgba(54, 162, 235, 1)',
-'rgba(255, 206, 86, 1)',
-'rgba(75, 192, 192, 1)',
-'rgba(153, 102, 255, 1)',
-'rgba(255, 159, 64, 1)'
-],
-borderWidth: 1
-},
-{
-label: 'Muscle Mass',
-data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
-backgroundColor: [
-'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)'
-],
-borderColor: [
-'rgba(255, 99, 132, 1)',
-'rgba(54, 162, 235, 1)',
-'rgba(255, 206, 86, 1)',
-'rgba(75, 192, 192, 1)',
-'rgba(153, 102, 255, 1)',
-'rgba(255, 159, 64, 1)'
-],
-borderWidth: 1
-}
-]
-},
-options:
-{
-scales:
-{
-y: [{
-ticks:
-{
-beginAtZero: true
-}
-}]
-}
-}
-}"; //end of chartdata
-            Chart = JsonConvert.DeserializeObject<ChartJs>(chartData);
-            ChartJson = JsonConvert.SerializeObject(Chart, new JsonSerializerSettings
+            int[] weights_array = new int[12];
+            int[] heights_array = new int[12];
+            int[] fp_array = new int[12];
+            int[] mm_array = new int[12];
+            DateTime dateTime= DateTime.Now;
+            int year = dateTime.Year;
+            for (int i = 0; i < 12; i++)
             {
-                NullValueHandling = NullValueHandling.Ignore,
-            });
+                string formatted_i = (i+1).ToString("D2");
+                //int int_i = int.Parse(formatted_i);
+                weights_array[i] = db.get_specif_atribute_from_bodyinfo("weight_", formatted_i,year.ToString() , username_coming_from_login);
+                heights_array[i] = db.get_specif_atribute_from_bodyinfo("height", formatted_i, year.ToString(), username_coming_from_login);
+                fp_array[i] = db.get_specif_atribute_from_bodyinfo("Fats_Percentage", formatted_i,year.ToString(), username_coming_from_login);
+                mm_array[i] = db.get_specif_atribute_from_bodyinfo("Muscles_Percentage", formatted_i, year.ToString(), username_coming_from_login);
+            }
+            string chartData = @" 
+                
+            {
+            type: 'line',
+            responsive: true,
+            data:
+            {
+            labels: ['January', 'February', 'March', 'April','May','June','July','August','September','October','November','December'],
+            datasets: [
+            {
+            label: 'Weight',
+            //data: [90, 2171, 71, 17, 122, 172, 172, 172, 172, 173, 173, 173],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+            },
+            {
+            label: 'Height',
+            //data: [190, 2171, 71, 17, 122, 172, 172, 172, 172, 173, 173, 173],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+            },
+            {
+            label: 'Fat Percentage',
+            //data: [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+            },
+            {
+            label: 'Muscle Mass',
+            //data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+            }
+            ]
+            },
+            options:
+            {
+            scales:
+            {
+            y: [{
+            ticks:
+            {
+            beginAtZero: true
+            }
+            }]
+            }
+            }
+            }"; //end of chartdata
+            
+            Chart = JsonConvert.DeserializeObject<ChartJs>(chartData);
+            // setting up datasets
+            Dataset dt = new Dataset();
+            Chart.data.datasets[0].data = weights_array;
+            Chart.data.datasets[1].data = heights_array;
+            Chart.data.datasets[2].data = fp_array;
+            Chart.data.datasets[3].data = mm_array;
+
+
+            ChartJson = JsonConvert.SerializeObject(Chart, new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore,
+                        });
         } //end of OnGet()
         public IActionResult OnPostM1()
         {

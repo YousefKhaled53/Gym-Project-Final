@@ -243,6 +243,27 @@ namespace Gym_Project.Models
             finally { connection.Close(); }
             return job;
         }
-        
+        public int get_specif_atribute_from_bodyinfo(string attribute,string month,string year,string username)
+        {
+            int fp = 0;
+
+            string q = "select "+attribute+" from Body_info where date_added_in like '%"+year+"%-"+month+"-%' and user_name='"+username+"'";
+
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                object result = comm.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    fp = Convert.ToInt32(result);
+                }
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return fp;
+        }
+
+
     }
 }
