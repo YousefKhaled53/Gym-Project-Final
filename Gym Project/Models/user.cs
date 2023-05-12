@@ -12,6 +12,7 @@
         public string username { get; set; }
         public string password { get; set; }
 
+        public string profileurl { get; set; }
         public user()
         {
 

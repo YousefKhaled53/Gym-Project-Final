@@ -135,9 +135,9 @@ namespace Gym_Project.Models
             catch (SqlException ex) { }
             finally { connection.Close(); }
         }
-        public void edituser(string fname, string lname, string bd, string email, string username, string password)
+        public void edituser(string fname, string lname, string bd, string email, string username, string password, string pic)
         {
-            string q = "update user_gym set  first_name = '"+fname+"',last_name = '"+lname+"',email = '"+email+"',password_ = '"+password+"',birthday = '"+bd+"' where user_name = '"+username+"'";
+            string q = "update user_gym set  first_name = '"+fname+"',last_name = '"+lname+"',email = '"+email+"',password_ = '"+password+"',birthday = '"+bd+ "',profil_pic='"+pic+"' where user_name = '" + username+"'";
             try
             {
                 connection.Open();
@@ -262,6 +262,25 @@ namespace Gym_Project.Models
             catch (SqlException ex) { }
             finally { connection.Close(); }
             return fp;
+        }
+        public string getprofilepiclink(string username)
+        {
+            string job = ".";
+            string q = "select profil_pic from user_gym where user_gym.user_name='" + username + "'";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                object result = comm.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    job = (string)comm.ExecuteScalar();
+                }
+
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return job;
         }
 
 

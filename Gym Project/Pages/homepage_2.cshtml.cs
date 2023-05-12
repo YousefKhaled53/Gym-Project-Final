@@ -21,7 +21,10 @@ namespace Gym_Project.Pages
         [BindProperty(SupportsGet = true)]
         [ViewData]
         public string username_coming_from_login { get; set; }
+        [ViewData]
+        public string picurl { get; set; }
         public DateTime start_date { get; set; }
+  
         public homepage_2Model(ILogger<IndexModel> logger, GYM_DB db)
         {
             _logger = logger;
@@ -30,7 +33,12 @@ namespace Gym_Project.Pages
 
         public void OnGet()
         {
-            body_info= new body_info(username_coming_from_login,db.getweight(username_coming_from_login),db.getheight(username_coming_from_login),db.getmusclemass(username_coming_from_login),db.getfatpercentage(username_coming_from_login));
+            if (db.getprofilepiclink(username_coming_from_login) != null)
+            {
+                picurl = db.getprofilepiclink(username_coming_from_login);
+            }
+
+            body_info = new body_info(username_coming_from_login,db.getweight(username_coming_from_login),db.getheight(username_coming_from_login),db.getmusclemass(username_coming_from_login),db.getfatpercentage(username_coming_from_login));
             int[] weights_array = new int[12];
             int[] heights_array = new int[12];
             int[] fp_array = new int[12];
@@ -40,7 +48,6 @@ namespace Gym_Project.Pages
             for (int i = 0; i < 12; i++)
             {
                 string formatted_i = (i+1).ToString("D2");
-                //int int_i = int.Parse(formatted_i);
                 weights_array[i] = db.get_specif_atribute_from_bodyinfo("weight_", formatted_i,year.ToString() , username_coming_from_login);
                 heights_array[i] = db.get_specif_atribute_from_bodyinfo("height", formatted_i, year.ToString(), username_coming_from_login);
                 fp_array[i] = db.get_specif_atribute_from_bodyinfo("Fats_Percentage", formatted_i,year.ToString(), username_coming_from_login);

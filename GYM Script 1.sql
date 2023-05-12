@@ -22,6 +22,7 @@ email VARCHAR(100) UNIQUE NOT NULL, CONSTRAINT check_email CHECK (email LIKE '%_
 job VARCHAR(50) NOT NULL,
 user_name VARCHAR(12) PRIMARY KEY NOT NULL,
 password_ VARCHAR(16) NOT NULL
+profil_pic varchar(50) 
 );
 ---- cause Phonenumber is multivalued ---
 CREATE TABLE phone_numbers (
@@ -219,3 +220,11 @@ WHERE user_name = 'aboshareb'
 ORDER BY date_added_in DESC;
 
 select * from Body_info where date_added_in like '%2023%-05-%' and user_name='aboshareb'
+
+select*from user_gym
+
+alter table user_gym
+add profil_pic varchar(50)
+
+select*from user_gym 
+
