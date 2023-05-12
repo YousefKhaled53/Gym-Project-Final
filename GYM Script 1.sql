@@ -214,8 +214,6 @@ VALUES (@usname, @Fac_rate, @c_rate,@comment);
 Go
 
 Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
-
-
 SELECT TOP 1 * FROM Body_info
 WHERE user_name = 'aboshareb'
 ORDER BY date_added_in DESC;
