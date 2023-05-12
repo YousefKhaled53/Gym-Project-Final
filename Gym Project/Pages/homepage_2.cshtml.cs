@@ -24,7 +24,8 @@ namespace Gym_Project.Pages
         [ViewData]
         public string picurl { get; set; }
         public DateTime start_date { get; set; }
-  
+        public DateTime enddate{ get; set; }
+
         public homepage_2Model(ILogger<IndexModel> logger, GYM_DB db)
         {
             _logger = logger;
@@ -33,6 +34,8 @@ namespace Gym_Project.Pages
 
         public void OnGet()
         {
+            enddate= (db.getvalid_until_date(username_coming_from_login));
+
             if (db.getprofilepiclink(username_coming_from_login) != null)
             {
                 picurl = db.getprofilepiclink(username_coming_from_login);

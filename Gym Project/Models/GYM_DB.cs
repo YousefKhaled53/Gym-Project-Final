@@ -282,6 +282,25 @@ namespace Gym_Project.Models
             finally { connection.Close(); }
             return job;
         }
+        public DateTime getvalid_until_date(string username)
+        {
+            DateTime dt= DateTime.Now;
+            string q = "select valid_until from Subscription  where user_name='" + username + "'";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                object result = comm.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    dt = (DateTime)comm.ExecuteScalar();
+                }
+
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return dt;
+        }
 
 
     }

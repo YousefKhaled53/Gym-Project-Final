@@ -226,5 +226,4 @@ select*from user_gym
 alter table user_gym
 add profil_pic varchar(50)
 
-select*from user_gym 
-
+select valid_until from Subscription where user_name='aboshareb'
