@@ -58,11 +58,39 @@ namespace Gym_Project.Pages
             string date = month + "-" + day + "-" + year;
             db.edituser(user.first_name,user.last_name,birthdate,user.email,user.username,user.password,user.profileurl);
             db.edituserbodydata(int.Parse(Request.Form["height"]), int.Parse(Request.Form["weight"]), int.Parse(Request.Form["muscle"]), int.Parse(Request.Form["fat"]), Request.Form["username"],date);
-            return RedirectToPage("/homepage_2", new { username_coming_from_login = user.username });
+            if (user.username == "Zee")
+            {
+                return RedirectToPage("/homepage_3", new { username_coming_from_login = user.username });
+
+            }
+            else if (user.username == "sarah")
+            {
+                return RedirectToPage("/homepage_4", new { username_coming_from_login = user.username });
+            }
+            else
+            {
+                return RedirectToPage("/homepage_2", new { username_coming_from_login = user.username });
+            }
             
         }
-        
+        public IActionResult OnPostCancel()
+        {
+            if (Request.Form["username"] == "Zee")
+            {
+                return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["username"] });
+
+            }
+            else if (Request.Form["username"] == "sarah")
+            {
+                return RedirectToPage("/homepage_4", new { username_coming_from_login = Request.Form["username"] });
+            }
+            else
+            {
+                return RedirectToPage("/homepage_2", new { username_coming_from_login = Request.Form["username"] });
+            }
+        }
 
     }
+    
 
 }

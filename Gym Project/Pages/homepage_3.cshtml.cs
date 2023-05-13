@@ -14,7 +14,8 @@ namespace Gym_Project.Pages
         [BindProperty(SupportsGet = true)]
         [ViewData]
         public string username_coming_from_login { get; set; }
-
+        [ViewData]
+        public string picurl { get; set; }
         public DataTable dt { get; set; }
         private readonly ILogger<IndexModel> _logger;
         public homepage_3Model(ILogger<IndexModel> logger, GYM_DB db)
@@ -24,6 +25,10 @@ namespace Gym_Project.Pages
         }
         public void OnGet()
         {
+            if (db.getprofilepiclink(username_coming_from_login) != null)
+            {
+                picurl = db.getprofilepiclink(username_coming_from_login);
+            }
             dt = db.return_users_Feedback();
         }
         public IActionResult OnPostSubmitrequest()

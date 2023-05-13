@@ -1,5 +1,5 @@
 ﻿@page
-@model Gym_Project.Pages.homepage_2Model
+@model Gym_Project.Pages.homepage_4Model
 @{
     ViewData["Title"] = "Home page";
     Layout = "_layout4"; 
@@ -14,7 +14,7 @@
                         <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h6>Welcome, Sara!</h6>
+                                    <h6>Welcome, Sara! here are the feedbacks about gym </h6>
 
                                 </div>
                             </div>
@@ -24,6 +24,51 @@
             </div>
         </div>
         <body>
+            
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <h6 style="font-size:50px; color:#fff">Feedbacks</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="loop owl-carousel">
+                @for (int i = 0; i < Model.dt.Rows.Count; i++)
+                {
+                    <div class="item">
+                        <div class="portfolio-item">
+                            <div class="thumb">
+                                <h6 style="font-size:30px; color:#fff">@Model.dt.Rows[i][0]</h6>
+                            </div>
+                            <div class="down-content">
+                                <h4>How do you rate the gym facilities?</h4>
+                                <div class="circle-container">
+                                    <div class="circle">@Model.dt.Rows[i][1]</div>
+                                </div>
+                                <h4>How do you rate the captains?</h4>
+                                <div class="circle-container">
+                                    <div class="circle">@Model.dt.Rows[i][2]</div>
+                                </div>
+                                <h4>Comment:</h4>
+                                <span>@Model.dt.Rows[i][3]</span>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+        </body>
+        @*
             <section class="main-content">
                 <div class="container">
                     <h1 class="text-center text-uppercase">Analytics and Statistics Card</h1>
@@ -69,7 +114,7 @@
                 </div>
             </section>
 
-        </body>
-
+  
+*@
     </div>
 </div>
