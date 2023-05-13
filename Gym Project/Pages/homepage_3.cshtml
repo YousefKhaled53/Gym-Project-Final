@@ -247,37 +247,106 @@
     <div class="container">
         <h6 style="font-size:40px; margin-left:400px; margin-bottom:30px; margin-top:-50px">The plans available</h6>
         <div class="card-container">
-            <div class="card">
+            <div class="card" id="card">
                 <h6>Monthly plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>150 EGP/Month</p>
-                <div class="border-first-button"><button>Delete</button></div>
-                <div class="border-first-button"><buttonn>Edit</buttonn></div>
+                <p><input style="width:80px; margin-left:-40px;" id="editableInput" type="number" value="150" disabled> EGP/Month</p>
+                <div class="border-first-button">
+                    <button onclick="deleteCard()">Delete</button>
+                </div>                <div class="border-first-button">
+                    <buttonn id="start-editing-btn" onclick="startEditing()">Edit</buttonn>
+                </div>
+                <script>
+                    function deleteCard() {
+                        var card = document.getElementById('card');
+                        card.remove();
+                    }
+                    function startEditing() {
+                        var input = document.getElementById('editableInput');
+                        input.disabled = false;
+                        input.focus();
 
+                        input.addEventListener('blur', function () {
+                            input.disabled = true;
+                        });
+                    }
+                    </script>
             </div>
-            <div class="card">
+            <div class="card" id="card1">
                 <h6>3 Months plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>120 EGP/Month</p>
-                <div class="border-first-button"><button>Delete</button></div>
-                <div class="border-first-button"><buttonn>Edit</buttonn></div>
+                <p><input style="width:80px; margin-left:-40px;" id="editableInput1" type="number" value="125" disabled> EGP/Month</p>
+                <div class="border-first-button">
+                    <button onclick="deleteCard1()">Delete</button>
+                </div>                <div class="border-first-button">
+                    <buttonn id="start-editing-btn" onclick="startEditing1()">Edit</buttonn>
+                </div>
+                <script>
+                    function deleteCard1() {
+                        var card = document.getElementById('card1');
+                        card.remove();
+                    }
+                    function startEditing1() {
+                        var input = document.getElementById('editableInput1');
+                        input.disabled = false;
+                        input.focus();
 
+                        input.addEventListener('blur', function () {
+                            input.disabled = true;
+                        });
+                    }
+                </script>
             </div>
             <div class="card">
                 <h6>6 Months plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>100 EGP/Month</p>
-                <div class="border-first-button"><button>Delete</button></div>
-                <div class="border-first-button"><buttonn>Edit</buttonn></div>
+                <p><input style="width:80px; margin-left:-40px;" id="editableInput2" type="number" value="100" disabled> EGP/Month</p>
+                <div class="border-first-button">
+                    <button onclick="deleteCard1()">Delete</button>
+                </div>                <div class="border-first-button">
+                    <buttonn id="start-editing-btn" onclick="startEditing2()">Edit</buttonn>
+                </div>
+                <script>
+                    function deleteCard2() {
+                        var card = document.getElementById('card2');
+                        card.remove();
+                    }
+                    function startEditing2() {
+                        var input = document.getElementById('editableInput2');
+                        input.disabled = false;
+                        input.focus();
+
+                        input.addEventListener('blur', function () {
+                            input.disabled = true;
+                        });
+                    }
+                </script>
 
             </div>
             <div class="card">
                 <h6>Yearly plan</h6>
                 <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p>75 EGP/Month</p>
-                <div class="border-first-button"><button>Delete</button></div>
-                <div class="border-first-button"><buttonn>Edit</buttonn></div>
+                <p><input style="width:80px; margin-left:-40px;" id="editableInput3" type="number" value="75" disabled> EGP/Month</p>
+                <div class="border-first-button">
+                    <button onclick="deleteCard3()">Delete</button>
+                </div>                <div class="border-first-button">
+                    <buttonn id="start-editing-btn" onclick="startEditing3()">Edit</buttonn>
+                </div>
+                <script>
+                    function deleteCard3() {
+                        var card = document.getElementById('card3');
+                        card.remove();
+                    }
+                    function startEditing3() {
+                        var input = document.getElementById('editableInput3');
+                        input.disabled = false;
+                        input.focus();
 
+                        input.addEventListener('blur', function () {
+                            input.disabled = true;
+                        });
+                    }
+                </script>
             </div>
         </div>
     </div>
