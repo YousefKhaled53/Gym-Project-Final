@@ -83,10 +83,13 @@ namespace Gym_Project.Pages
 			string birthdate= month_bd+ "-"+ day_bd + "-" +year_bd;
 			if (password == confirmpassword)
 			{
-				db.adduser(first_name,last_name,birthdate,Gender,email,username,password);
+                
+                db.adduser(first_name,last_name,birthdate,Gender,email,username,password);
                 return RedirectToPage("/homepage_2", new { username_coming_from_login = username });
             }
-			else { return Page(); }
+			else {
+                TempData["ErrorSignMessage"] = "Passwords do not match please try again";
+                return Page(); }
 			
 		}
 		public void OnPostForgotpassword()

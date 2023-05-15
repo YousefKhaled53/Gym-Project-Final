@@ -81,10 +81,10 @@
         alert("A PASSWORD SENT TO YOUR EMAIL (check spam) ");
     }
 </script>
-@if (TempData["ErrorMessage"] != null)
+@if (TempData["ErrorSignMessage"] != null)
 {
     <script>
-        alert('@TempData["ErrorMessage"]');
+        alert('@TempData["ErrorSignMessage"]');
     </script>
 }
 <script>
@@ -226,223 +226,108 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="schedule-table">
-                    <table class="table bg-white">
-                        <thead>
-                            <tr>
-                                <th>Day</th>
-                                <th>12 pm</th>
-                                <th>03 pm</th>
-                                <th>05 pm</th>
-                                <th>06 pm</th>
-                                <th class="last">08 pm</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="day">Sunday</td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
 
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>girls only time</h4>
-                                    <div class="hover">
-                                        <h4>Girls only time</h4>
-                                        <p>Girls only are allowed</p>
-                                        <span>5pm-6pm</span>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="day">Monday</td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
+                        <h2>The gym time slots are mixed by default except the following for women only </h2>
+                        <table class="table bg-white">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Holiday Or Not</th>
+                                    <th>Working hours</th>
+                                    <th>Women slots</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="day">Sunday</td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>
+                                        <div class="hover">
+                                        </div>
+                                    </td>
 
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>girls only time</h4>
-                                    <div class="hover">
-                                        <h4>Girls only time</h4>
-                                        <p>Girls only are allowed</p>
-                                        <span>5pm-6pm</span>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="day">Monday</td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
 
-                                <td class="day">Tuesday</td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
 
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>girls only time</h4>
-                                    <div class="hover">
-                                        <h4>Girls only time</h4>
-                                        <p>Girls only are allowed</p>
-                                        <span>5pm-6pm</span>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="day">Wednesday</td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
+                                </tr>
+                                <tr>
 
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>girls only time</h4>
-                                    <div class="hover">
-                                        <h4>Girls only time</h4>
-                                        <p>Girls only are allowed</p>
-                                        <span>5pm-6pm</span>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="day">Thursday</td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
+                                    <td class="day">Tuesday</td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
 
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>girls only time</h4>
-                                    <div class="hover">
-                                        <h4>Girls only time</h4>
-                                        <p>Girls only are allowed</p>
-                                        <span>5pm-6pm</span>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                                <td class="active">
-                                    <h4>Boys and girls time</h4>
-                                    <div class="hover">
-                                        <h4>Boys and Girls time</h4>
-                                        <p>both are allowed</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
 
-                        </tbody>
-                    </table>
+                                </tr>
+                                <tr>
+                                    <td class="day">Wednesday</td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="day">Thursday</td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+                                    <td class="inactive">
+                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>
