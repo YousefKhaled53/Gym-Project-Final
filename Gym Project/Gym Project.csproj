@@ -12,4 +12,10 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions">
+      <HintPath>..\..\System.Web.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -7,7 +7,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeLoginForm()">&times;</span>
         <h2 style="color:#2a2a2a">Login</h2>
-        <form method="post" asp-page="/homepage_2">
+        <form method="post" asp-page="/homepage_2" runat="server">
             <label for="username" >User name</label>
             <input type="text" id="username" name="username" required  >
 
@@ -81,7 +81,12 @@
         alert("A PASSWORD SENT TO YOUR EMAIL (check spam) ");
     }
 </script>
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
 <script>
     function openLoginForm() {
         document.getElementById("loginForm").style.display = "block";

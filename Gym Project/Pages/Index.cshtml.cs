@@ -7,7 +7,7 @@ using System;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Gym_Project.Pages
 {
 	public class IndexModel : PageModel
@@ -15,22 +15,27 @@ namespace Gym_Project.Pages
 		private readonly ILogger<IndexModel> _logger;
 		private readonly GYM_DB db;
 
-		public IndexModel(ILogger<IndexModel> logger, GYM_DB db)
+
+        public IndexModel(ILogger<IndexModel> logger, GYM_DB db)
 		{
-			_logger = logger;
+            _logger = logger;
 			this.db = db;
 		}
 		[BindProperty]
 		public string password_from_login { get; set; }
 		[BindProperty]
 		public string usrname_from_login { get; set; }
-		public void OnGet()
+        
+        public void OnGet()
 		{
+            
+        }
 
-		}
-		public IActionResult OnPostLogin() {
+        
+
+        public IActionResult OnPostLogin(object sender,EventArgs e) {
 			usrname_from_login = Request.Form["username"];
-			password_from_login += Request.Form["password"];
+			password_from_login = Request.Form["password"];
             
             if (db.getpassword(usrname_from_login) == password_from_login && db.getjob(usrname_from_login) == "student")
 			{
@@ -46,12 +51,14 @@ namespace Gym_Project.Pages
 			}
 			else
 			{
+                TempData["ErrorMessage"] = "Invalid username or password";
+
+
                 return Page();
 			}
-
-
 		}
-		public string first_name { get; set; }
+        
+        public string first_name { get; set; }
         public string last_name { get; set; }
         public string day_bd{ get; set; }
         public string month_bd { get; set; }

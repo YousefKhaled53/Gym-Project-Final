@@ -101,6 +101,9 @@ password_ VARCHAR(16) NOT NULL,
 Job_title  VARCHAR(50) NOT NULL,
 Salary VARCHAR(16) NOT NULL,
 );
+insert into Employee(first_name,last_name,birthday,email,Address_,user_name,password_,Job_title,Salary)
+Values('Mohamed','sayed','1-1-2000','s-mohamed.sayed@zewailcity.edu.eg','6 of october','Zee','1234','coach',1000)
+select*from Employee
 --------------------------------------------------------------------
 ------------Tables Creation (Administration Office Entity )-----------------
 
@@ -111,6 +114,7 @@ Role_  VARCHAR(50) Unique  ,
 Name_ VARCHAR(30) NOT NULL,
 email VARCHAR(100) UNIQUE NOT NULL, CONSTRAINT check_email2 CHECK (email LIKE '%_@__%.__%') , 
 );
+insert into Administration(user_name,password_,Role_,Name_,email)
 --------------------------------------------------------------------
 ------------Tables Creation (Equipment Entity )-----------------
 CREATE TABLE Equipment(
