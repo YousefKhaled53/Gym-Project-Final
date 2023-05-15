@@ -52,8 +52,6 @@ namespace Gym_Project.Pages
 			else
 			{
                 TempData["ErrorMessage"] = "Invalid username or password";
-
-
                 return Page();
 			}
 		}

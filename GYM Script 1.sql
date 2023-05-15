@@ -115,6 +115,8 @@ Name_ VARCHAR(30) NOT NULL,
 email VARCHAR(100) UNIQUE NOT NULL, CONSTRAINT check_email2 CHECK (email LIKE '%_@__%.__%') , 
 );
 insert into Administration(user_name,password_,Role_,Name_,email)
+values ('ezaby','1234','SU','Sara Ezaby','s-sarah.ezaby@zewailcity.edu.eg')
+select*from user_gym
 --------------------------------------------------------------------
 ------------Tables Creation (Equipment Entity )-----------------
 CREATE TABLE Equipment(
@@ -227,5 +229,4 @@ alter table user_gym
 add profil_pic varchar(50)
 
 select valid_until from Subscription where user_name='aboshareb'
-
 

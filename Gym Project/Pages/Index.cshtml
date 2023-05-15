@@ -72,7 +72,7 @@
             <input type="submit" value="Signup" asp-page-handler="sign" >
 
             <div class="form-links">
-<a href="#" onclick="openLoginForm(); closeSignupForm()">Already have an account?</a>            </div>
+<a href="#" onclick="openLoginForm(); closeSignupForm()">Already have an account?</a></div>
         </form>
     </div>
 </div>
@@ -81,6 +81,13 @@
         alert("A PASSWORD SENT TO YOUR EMAIL (check spam) ");
     }
 </script>
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert('@TempData["ErrorSignMessage"]');
+    </script>
+}
+
 @if (TempData["ErrorSignMessage"] != null)
 {
     <script>
