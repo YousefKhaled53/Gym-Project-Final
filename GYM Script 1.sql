@@ -47,28 +47,12 @@ Previous_Injuries VARCHAR(500),
  --------------------------------------------------------------------
  ------------Tables Creation (Time Slots entity)-----------------
 CREATE TABLE Time_Slots (
-day_of_week VARCHAR(10) NOT NULL PRIMARY KEY,
-mix_slots TIME ,
-Holidays VARCHAR(10) NOT NULL,
-Working_hours_start TIME ,  
-Working_hours_end TIME ,  
+day_of_week VARCHAR(10) ,
+shift_ int NOT NULL PRIMARY KEY,
+shift_hours varchar(10),
+who_is_allowed varchar(30)
 );
 
-CREATE TABLE men_slots (
-day_of_week VARCHAR(10) NOT NULL FOREIGN KEY REFERENCES Time_Slots,
-From_hours TIME ,
-To_hours TIME ,
-);
-CREATE TABLE women_slots (
-day_of_week VARCHAR(10) NOT NULL FOREIGN KEY REFERENCES Time_Slots,
-From_hours TIME ,
-To_hours TIME ,
-);
-CREATE TABLE Mix_slots (
-day_of_week VARCHAR(10) NOT NULL FOREIGN KEY REFERENCES Time_Slots,
-From_hours TIME ,
-To_hours TIME ,
-);
 --------------------------------------------------------------------
  ------------Tables Creation (Subscription and offer  entities)-----------------
 CREATE TABLE Subscription (
@@ -98,10 +82,11 @@ valid_until DATE NOT NULL
 
 --------------------------------------------------------------------
  ------------Tables Creation (Gym Entity )-----------------
-CREATE TABLE GYM(
-day_of_week VARCHAR(10) FOREIGN KEY REFERENCES Time_Slots ,
-Location_Gym VARCHAR(100) NOT NULL UNIQUE ,
-);
+--CREATE TABLE GYM(
+--day_of_week VARCHAR(10) FOREIGN KEY REFERENCES Time_Slots ,
+--Location_Gym VARCHAR(100) NOT NULL UNIQUE ,
+--);
+
 --------------------------------------------------------------------
 ------------Tables Creation (Employee Entity )-----------------
 CREATE TABLE Employee (
@@ -141,6 +126,17 @@ CREATE TABLE Working_Muscles (
  Equipment_num INT FOREIGN KEY REFERENCES Equipment,
 Working_Muscles VARCHAR(500),
  );
+ insert into Equipment(Equipment_num,Name_,Photo,Condition)
+ values (10,'back pull','back pull.jpg',100)
+
+ insert into Working_Muscles(Equipment_num,Working_Muscles)
+ values (10,'Back')
+
+ Delete from Working_Muscles where Equipment_num=10 Delete from Equipment where Equipment_num=10
+ 
+
+select*from Equipment inner join Working_Muscles on Working_Muscles.Equipment_num=Equipment.Equipment_num
+
  --------------------------------------------------------------------
 ------------Tables Creation (Finance Entity )-----------------
 CREATE TABLE Finance (
@@ -227,3 +223,5 @@ alter table user_gym
 add profil_pic varchar(50)
 
 select valid_until from Subscription where user_name='aboshareb'
+
+

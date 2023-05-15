@@ -17,6 +17,7 @@ namespace Gym_Project.Pages
         [ViewData]
         public string picurl { get; set; }
         public DataTable dt { get; set; }
+        public DataTable dt_for_machines { get; set; }
         private readonly ILogger<IndexModel> _logger;
         public homepage_3Model(ILogger<IndexModel> logger, GYM_DB db)
         {
@@ -30,6 +31,7 @@ namespace Gym_Project.Pages
                 picurl = db.getprofilepiclink(username_coming_from_login);
             }
             dt = db.return_users_Feedback();
+            dt_for_machines = db.gym_machines();
         }
         public IActionResult OnPostSubmitrequest()
         {
@@ -51,6 +53,12 @@ namespace Gym_Project.Pages
             };
             smtpClient.Send(msg);
             return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["un"] });
+        }
+        public IActionResult OnPostDeletemachine()
+        {
+            db.deletemachine(Request.Form["machineno"]);
+            return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["un"] });
+
         }
     }
 }

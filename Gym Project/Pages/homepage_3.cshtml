@@ -508,19 +508,25 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="loop owl-carousel">
-                @for (int i =0; i<2; i++)
+                @for (int i =0; i<Model.dt_for_machines.Rows.Count; i++)
                 {
                     <div class="item">
                         <a>
                             <div class="portfolio-item">
                                 <div class="thumb">
-                                    <img src="images/eq1.jpg" alt="">
+                                    <img src="images/@Model.dt_for_machines.Rows[i][3]" alt="">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Muscles:</h4> <span>Biceps, Shoulder</span>
-                                    <h4>Condition:</h4> <span>83%</span>
-                                    <div class="border-first-button"><button>Delete</button></div>
+                                    <h4 >NO:</h4> <span>@Model.dt_for_machines.Rows[i][0]</span>
+                                    <h4>Muscles:</h4> <span>@Model.dt_for_machines.Rows[i][7]</span>
+                                    <h4>Condition:</h4> <span>@Model.dt_for_machines.Rows[i][4]</span>
+                                    
+                                    <form method="post">
+                                    <input type="hidden" name="machineno" value=" @Model.dt_for_machines.Rows[i][0] " ></input>
+                                    <input type="hidden" name="un" value="@Model.username_coming_from_login"></input>
+                                    <div class="border-first-button"><button asp-page-handler="deletemachine" >Delete</button></div>
                                     <div class="border-first-button"><buttonn>Edit</buttonn></div>
+                                    </form>
                                 </div>
                             </div>
                         </a>

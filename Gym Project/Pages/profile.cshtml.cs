@@ -89,6 +89,10 @@ namespace Gym_Project.Pages
                 return RedirectToPage("/homepage_2", new { username_coming_from_login = Request.Form["username"] });
             }
         }
+        public void OnPostDeletemachine()
+        {
+
+        }
 
     }
     

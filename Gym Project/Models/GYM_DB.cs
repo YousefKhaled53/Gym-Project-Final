@@ -301,7 +301,35 @@ namespace Gym_Project.Models
             finally { connection.Close(); }
             return dt;
         }
+        public DataTable gym_machines()
+        {
+            DataTable dt = new DataTable();
+            string q = "select*from Equipment inner join Working_Muscles on Working_Muscles.Equipment_num=Equipment.Equipment_num\r\n";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                dt.Load(comm.ExecuteReader());
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return dt;
+        }
 
+        public void deletemachine(string n)
+        {
+            string q = " Delete from Working_Muscles where Equipment_num="+n+" Delete from Equipment where Equipment_num="+n+"";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+
+                comm.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+        }
 
     }
 }
