@@ -84,7 +84,7 @@
 @if (TempData["ErrorMessage"] != null)
 {
     <script>
-        alert('@TempData["ErrorSignMessage"]');
+        alert('@TempData["ErrorMessage"]');
     </script>
 }
 
@@ -245,94 +245,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="day">Sunday</td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>
-                                        <div class="hover">
-                                        </div>
-                                    </td>
+                                @for (int i = 0; i < Model.dt_Time_slots.Rows.Count; i++)
+                                {
+                                    <tr>
+                                        <td class="day">@Model.dt_Time_slots.Rows[i][0]</td>
+                                        <td class="inactive">
+                                            <input type="text" value="@Model.dt_Time_slots.Rows[i][2]" disabled>
+                                            <div class="hover">
+                                            </div>
+                                        </td>
 
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="day">Monday</td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
+                                        <td class="inactive">
+                                            <input type="text" value="From : @Model.dt_Time_slots.Rows[i][3] to: @Model.dt_Time_slots.Rows[i][4]" disabled>                                                            <div class="hover">
+                                            </div>
+                                        </td>
+                                        <td class="inactive">
+                                            <input type="text" value="From : @Model.dt_Time_slots.Rows[i][6] to: @Model.dt_Time_slots.Rows[i][7]" disabled>                                                            <div class="hover">
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-
-                                    <td class="day">Tuesday</td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="day">Wednesday</td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="day">Thursday</td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-                                    <td class="inactive">
-                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-
+                                }
                             </tbody>
                         </table>
                 </div>

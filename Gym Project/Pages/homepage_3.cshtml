@@ -17,7 +17,7 @@
                                 <div class="col-lg-12">
                                     <h6>Welcome, Captain!</h6>
                                     <h2>The time table of the gym </h2>
-                                    <h2>The default is mixed</h2>
+                                    <h2>The default times are mixed</h2>
                                 </div>
                             </div>
 
@@ -26,110 +26,71 @@
                                     <div class="schedule-table">
                                         <meta charset="UTF-8">
                                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+                                        
+                                       <form method="post"> 
                                         <table class="table bg-white">
                                             <thead>
                                                 <tr>
                                                     <th>Day</th>
                                                     <th>Holiday Or Not</th>
-                                                    <th>Working hours</th>
-                                                    <th>Women slots</th>
+                                                    <th>Working hours from </th>
+                                                    <th>Working hours to </th>
+                                                    <th>Women slots from </th>
+                                                    <th>Women slots to </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="day">Sunday</td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>
-                                                        <div class="hover">
-                                                        </div>
-                                                    </td>
 
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="day">Monday</td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
+                                                    @for(int i = 0; i < Model.dt_Time_slots.Rows.Count; i++)
+                                                    {
+                                                        <tr>
 
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
+                                                        <input name="day" type="hidden" value="@Model.dt_Time_slots.Rows[i][0]"></input>
+                                                        <td class="day">@Model.dt_Time_slots.Rows[i][0]</td>
+                                                        <td class="inactive">
+                                                            <input name="holiday_temp" type="hidden" value="@Model.dt_Time_slots.Rows[i][2]" >
 
-                                                    <td class="day">Tuesday</td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
+                                                            <input name="holiday" type="text" value="@Model.dt_Time_slots.Rows[i][2]" disabled>
+                                                            <div class="hover">
+                                                            </div>
+                                                        </td>
 
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td class="day">Wednesday</td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
 
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td class="day">Thursday</td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
+                                                        <td class="inactive">
 
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    <td class="inactive">
-                                                        <input type="text" value="Boys and girls time" disabled>                                                            <div class="hover">
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
+                                                            <input name="wh_from_temp" type="hidden" value=" @Model.dt_Time_slots.Rows[i][3] " >
+                                                            <input name="wh_from" type="text" value=" @Model.dt_Time_slots.Rows[i][3] " disabled>                                                            <div class="hover">
+                                                            </div>
+                                                        </td>
+                                                        <td class="inactive">
 
+                                                            <input name="wh_to_temp" type="hidden" value="@Model.dt_Time_slots.Rows[i][4]" >
+                                                            <input name="wh_to" type="text" value="@Model.dt_Time_slots.Rows[i][4]" disabled>                                                            <div class="hover">
+                                                            </div>
+                                                        </td>
+                                                        <td class="inactive">
+
+                                                            <input name="w_slots_from_temp" type="hidden" value="@Model.dt_Time_slots.Rows[i][6] ">
+                                                            <input name="w_slots_from" type="text" value="@Model.dt_Time_slots.Rows[i][6] " disabled>                                                            <div class="hover">
+                                                            </div>
+                                                        </td>
+                                                        <td class="inactive">
+                                                            
+                                                            <input name= "w_slots_to_temp" type="hidden" value=" @Model.dt_Time_slots.Rows[i][7]" >      
+                                                            <input name= "w_slots_to" type="text" value=" @Model.dt_Time_slots.Rows[i][7]" disabled>                                                            <div class="hover">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                }
+                                              
                                             </tbody>
                                         </table>
-                                        <button12 id="edit-button">Edit Schedule</button12>
+                                        <button12 id="edit-button" >Edit Schedule</button12>
+                                            <input type="hidden" name="capname" value="@Model.username_coming_from_login"></input>
 
-
+                                            <button onclick="Edits_saved()" class="btn btn-primary" asp-page-handler="saveschedule">Save</button>
+                                        </form>
                                         <script>
                                             function toggleEdit() {
                                                 // Get all the input elements
@@ -151,9 +112,9 @@
                                                     editButton.innerHTML = "Edit Schedule";
 
                                                     // Disable all input fields
-                                                    for (var i = 0; i < inputs.length; i++) {
-                                                        inputs[i].disabled = true;
-                                                    }
+                                                    //for (var i = 0; i < inputs.length; i++) {
+                                                    //    inputs[i].disabled = true;
+                                                    //}
                                                 }
                                             }
                                             var editButton = document.getElementById("edit-button");
@@ -167,9 +128,9 @@
                                             function stopEditing() {
                                                 // Set the "disabled" attribute of all input fields to true
                                                 var inputFields = document.getElementsByTagName("input");
-                                                for (var i = 0; i < inputFields.length; i++) {
-                                                    inputFields[i].disabled = true;
-                                                }
+                                                //for (var i = 0; i < inputFields.length; i++) {
+                                                //    inputFields[i].disabled = true;
+                                                //}
 
                                                 // Hide the "Stop Editing" button and show the "Start Editing" button
                                                 var stopEditingBtn = document.getElementById("stop-editing-btn");
@@ -210,110 +171,53 @@
     <div class="container">
         <h6 style="font-size:40px; margin-left:400px; margin-bottom:30px; margin-top:-50px">The plans available</h6>
         <div class="card-container">
-            <div class="card" id="card">
-                <h6>Monthly plan</h6>
-                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p><input style="width:80px; margin-left:-40px;" id="editableInput" type="number" value="150" disabled> EGP/Month</p>
-                <div class="border-first-button">
-                    <button onclick="deleteCard()">Delete</button>
-                </div>                <div class="border-first-button">
-                    <buttonn id="start-editing-btn" onclick="startEditing()">Edit</buttonn>
+            @for(int i = 0; i < Model.dt_Plans.Rows.Count; i++)
+            {
+                <form method="post">
+                <div class="card" id="card">
+                    <h6>@Model.dt_Plans.Rows[i][1] plan</h6>
+                    <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
+                    <p><input style="width:80px; margin-left:-40px;" id="@i" type="number" value="@Model.dt_Plans.Rows[i][2]" name="vs" disabled> EGP/Month for students </p>
+                    <p><input style="width:80px; margin-left:-40px;" id="@i worker" type="number" value="@Model.dt_Plans.Rows[i][3]" name="vw" disabled> EGP/Month for worksers </p>
+                    <input type="hidden"  value="@Model.dt_Plans.Rows[i][0]" name="n" >
+                        <input type="hidden" value="@Model.username_coming_from_login" name="cname">
+                    <div class="border-first-button">
+                        <button onclick="Edits_saved()" asp-page-handler="saveplan">save</button>
+                    </div>                <div class="border-first-button">
+                        <buttonn id="start-editing-btn" onclick="startEditing('@i') ;startEditingWorker(@i) ">Edit</buttonn>
+                    </div>
                 </div>
-                <script>
-                    function deleteCard() {
-                        var card = document.getElementById('card');
-                        card.remove();
-                    }
-                    function startEditing() {
-                        var input = document.getElementById('editableInput');
-                        input.disabled = false;
-                        input.focus();
-
-                        input.addEventListener('blur', function () {
-                            input.disabled = true;
-                        });
-                    }
-                    </script>
-            </div>
-            <div class="card" id="card1">
-                <h6>3 Months plan</h6>
-                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p><input style="width:80px; margin-left:-40px;" id="editableInput1" type="number" value="125" disabled> EGP/Month</p>
-                <div class="border-first-button">
-                    <button onclick="deleteCard1()">Delete</button>
-                </div>                <div class="border-first-button">
-                    <buttonn id="start-editing-btn" onclick="startEditing1()">Edit</buttonn>
-                </div>
-                <script>
-                    function deleteCard1() {
-                        var card = document.getElementById('card1');
-                        card.remove();
-                    }
-                    function startEditing1() {
-                        var input = document.getElementById('editableInput1');
-                        input.disabled = false;
-                        input.focus();
-
-                        input.addEventListener('blur', function () {
-                            input.disabled = true;
-                        });
-                    }
-                </script>
-            </div>
-            <div class="card">
-                <h6>6 Months plan</h6>
-                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p><input style="width:80px; margin-left:-40px;" id="editableInput2" type="number" value="100" disabled> EGP/Month</p>
-                <div class="border-first-button">
-                    <button onclick="deleteCard1()">Delete</button>
-                </div>                <div class="border-first-button">
-                    <buttonn id="start-editing-btn" onclick="startEditing2()">Edit</buttonn>
-                </div>
-                <script>
-                    function deleteCard2() {
-                        var card = document.getElementById('card2');
-                        card.remove();
-                    }
-                    function startEditing2() {
-                        var input = document.getElementById('editableInput2');
-                        input.disabled = false;
-                        input.focus();
-
-                        input.addEventListener('blur', function () {
-                            input.disabled = true;
-                        });
-                    }
-                </script>
-
-            </div>
-            <div class="card">
-                <h6>Yearly plan</h6>
-                <img src="images/vec1.jpg" width="1000" height="250" alt="Image">
-                <p><input style="width:80px; margin-left:-40px;" id="editableInput3" type="number" value="75" disabled> EGP/Month</p>
-                <div class="border-first-button">
-                    <button onclick="deleteCard3()">Delete</button>
-                </div>                <div class="border-first-button">
-                    <buttonn id="start-editing-btn" onclick="startEditing3()">Edit</buttonn>
-                </div>
-                <script>
-                    function deleteCard3() {
-                        var card = document.getElementById('card3');
-                        card.remove();
-                    }
-                    function startEditing3() {
-                        var input = document.getElementById('editableInput3');
-                        input.disabled = false;
-                        input.focus();
-
-                        input.addEventListener('blur', function () {
-                            input.disabled = true;
-                        });
-                    }
-                </script>
-            </div>
+                </form>
+            }
         </div>
     </div>
 </div>
+
+<script>
+    
+    function startEditing(name) {
+        var input = document.getElementById(name);
+        input.disabled = false;
+        input.focus();
+
+        //input.addEventListener('blur', function () {
+        //    input.disabled = true;
+        //});
+    }
+    function startEditingWorker(name) {
+       
+        var input = document.getElementById(name + ' worker');
+        input.disabled = false;
+        input.focus();
+
+        //input.addEventListener('blur', function () {
+        //    input.disabled = true;
+        //});
+
+    }
+    
+
+</script>
 
 
 <div id="services" class="services section">
@@ -380,6 +284,12 @@
                 </div>
             </form>
         </div>
+        <script>
+            function Edits_saved() {
+                alert("Your edits is saved");
+            }
+        </script>
+
         <script>
             function myFunction() {
                 alert("Your request is sent succesfully ");
@@ -471,22 +381,20 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="loop owl-carousel">
-                @*@for (int i =0; i<Model.dt_for_machines.Rows.Count; i++)
+                @for (int i =0 ;i<@Model.dt_for_machines.Rows.Count;i++)
                 {
-                    
-                }*@
-                <div class="item">
+                    <div class="item">
                     <a>
                         <div class="portfolio-item">
                             <div class="thumb">
-                                <img src="images/@Model.dt_for_machines.Rows[0][3]" style="width:223px ; height:200px;" alt="">
+                                <img src="images/@Model.dt_for_machines.Rows[i][3]" style="width:223px ; height:200px;" alt="">
                             </div>
                             <div class="down-content">
-                                <h4>NO:</h4> <span>@Model.dt_for_machines.Rows[0][0]</span>
-                                <h4>Muscles:</h4><p><input style="width:180px; position:center;" id="x" value="@Model.dt_for_machines.Rows[0][7]" disabled></p>
-                                <h4>Condition:</h4> <span>@Model.dt_for_machines.Rows[0][4]</span>
+                                <h4>NO:</h4> <span>@Model.dt_for_machines.Rows[i][0]</span>
+                                <h4>Muscles:</h4><p><input style="width:180px; position:center;" id="x" value="@Model.dt_for_machines.Rows[i][7]" disabled></p>
+                                <h4>Condition:</h4> <span>@Model.dt_for_machines.Rows[i][4]</span>
                                 <form method="post">
-                                    <input type="hidden" name="machineno" value=" @Model.dt_for_machines.Rows[0][0] "></input>
+                                    <input type="hidden" name="machineno" value=" @Model.dt_for_machines.Rows[i][0] "></input>
                                     <input type="hidden" name="un" value="@Model.username_coming_from_login"></input>
                                     <div class="border-first-button"><button asp-page-handler="deletemachine">Delete</button></div>
                                     <div class="border-first-button">
@@ -497,6 +405,8 @@
                         </div>
                     </a>
                 </div>
+                
+                }
                 <script>
                     function machineEditing() {
                         var input = document.getElementById('x');

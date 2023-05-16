@@ -21,7 +21,7 @@ gender VARCHAR(10) NOT NULL,
 email VARCHAR(100) UNIQUE NOT NULL, CONSTRAINT check_email CHECK (email LIKE '%_@__%.__%') ,
 job VARCHAR(50) NOT NULL,
 user_name VARCHAR(12) PRIMARY KEY NOT NULL,
-password_ VARCHAR(16) NOT NULL
+password_ VARCHAR(16) NOT NULL,
 profil_pic varchar(50) 
 );
 ---- cause Phonenumber is multivalued ---
@@ -33,7 +33,7 @@ CREATE TABLE phone_numbers (
 ------------Tables Creation (Body info entity)-----------------
 CREATE TABLE Body_info(
 user_name VARCHAR (12) FOREIGN KEY REFERENCES user_gym,
-weight_ INT 
+weight_ INT ,
 height INT NOT NULL,
 Muscles_Percentage INT NOT NULL,
 Fats_Percentage INT NOT NULL,
@@ -47,12 +47,60 @@ Previous_Injuries VARCHAR(500),
  --------------------------------------------------------------------
  ------------Tables Creation (Time Slots entity)-----------------
 CREATE TABLE Time_Slots (
-day_of_week VARCHAR(10) ,
-shift_ int NOT NULL PRIMARY KEY,
-shift_hours varchar(10),
-who_is_allowed varchar(30)
+  day_of_week VARCHAR(10) NOT NULL PRIMARY KEY,
+  mix_slots TIME,
+  Holidays VARCHAR(10) NOT NULL,
+  Working_hours_start TIME DEFAULT '10:00 AM',
+  Working_hours_end TIME DEFAULT '8:00 PM'
 );
 
+CREATE TABLE women_slots (
+  day_of_week VARCHAR(10) NOT NULL PRIMARY KEY,
+  From_hours TIME,
+  To_hours TIME,
+  FOREIGN KEY (day_of_week) REFERENCES Time_Slots(day_of_week)
+);
+
+INSERT INTO Time_Slots (day_of_week, Holidays,Working_hours_start,Working_hours_end) VALUES
+  ('Sunday', 'No','10:00 AM','8:00 PM'),
+  ('Monday', 'No','10:00 AM','8:00 PM'),
+  ('Tuesday', 'No','10:00 AM','8:00 PM'),
+  ('Wednesday', 'No','10:00 AM','8:00 PM'),
+  ('Thursday', 'No','10:00 AM','8:00 PM'),
+  ('Friday', 'Yes','10:00 AM','8:00 PM'),
+  ('Saturday', 'Yes','10:00 AM','9:00 PM');
+
+INSERT INTO women_slots (day_of_week, From_hours, To_hours) VALUES
+  ('Sunday', '1:00 PM', '2:00 PM'),
+  ('Tuesday', '1:00 PM', '2:00 PM'),
+  ('Thursday', '1:00 PM', '2:00 PM'),
+  ('Monday', '5:30 PM', '6:30 PM'),
+  ('Wednesday', '5:30 PM', '6:30 PM');
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'GetSlotStrings')
+    DROP PROCEDURE GetSlotStrings;
+GO
+ 
+CREATE PROCEDURE GetSlotStrings
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @output VARCHAR(MAX) = '';
+
+    SELECT @output = @output + '___________________________' + CHAR(13) + CHAR(10)
+        + 'Day: ' + ts.day_of_week + ', Holidays: ' + ts.Holidays + ', Working Hours: ' 
+        + CONVERT(VARCHAR(8), ts.Working_hours_start, 108) + ' - ' + CONVERT(VARCHAR(8), ts.Working_hours_end, 108) 
+        + ', Women Slots: ' + CONVERT(VARCHAR(8), ws.From_hours, 108) + ' - ' + CONVERT(VARCHAR(8), ws.To_hours, 108) + CHAR(13) + CHAR(10)
+        + '____________________________' + CHAR(13) + CHAR(10)
+    FROM Time_Slots ts
+    JOIN women_slots ws ON ts.day_of_week = ws.day_of_week;
+
+    PRINT @output;
+END;
+GO	
+EXEC GetSlotStrings;
+
+select* from Time_Slots  inner join women_slots on women_slots.day_of_week=Time_Slots.day_of_week
 --------------------------------------------------------------------
  ------------Tables Creation (Subscription and offer  entities)-----------------
 CREATE TABLE Subscription (
@@ -70,6 +118,12 @@ valid_until AS DATEADD(DAY,
                     END, 
                     Start_in),
 discount_price DECIMAL(10, 2) DEFAULT NULL
+);
+create table Plans(
+number int primary key,
+type varchar(20),
+value_for_students int,
+value_for_workers int,
 );
 
 CREATE TABLE Offer (
@@ -116,7 +170,7 @@ email VARCHAR(100) UNIQUE NOT NULL, CONSTRAINT check_email2 CHECK (email LIKE '%
 );
 insert into Administration(user_name,password_,Role_,Name_,email)
 values ('ezaby','1234','SU','Sara Ezaby','s-sarah.ezaby@zewailcity.edu.eg')
-select*from user_gym
+
 --------------------------------------------------------------------
 ------------Tables Creation (Equipment Entity )-----------------
 CREATE TABLE Equipment(
@@ -132,24 +186,18 @@ CREATE TABLE Working_Muscles (
  Equipment_num INT FOREIGN KEY REFERENCES Equipment,
 Working_Muscles VARCHAR(500),
  );
+
+
  insert into Equipment(Equipment_num,Name_,Photo,Condition)
- values (10,'back pull','back pull.jpg',100)
+ values (9,'Treadmil','treadmil.jpg',100)
 
  insert into Working_Muscles(Equipment_num,Working_Muscles)
- values (10,'Back')
+ values (9,'Cardio')
 
- Delete from Working_Muscles where Equipment_num=10 Delete from Equipment where Equipment_num=10
  
-
-select*from Equipment inner join Working_Muscles on Working_Muscles.Equipment_num=Equipment.Equipment_num
-
  --------------------------------------------------------------------
 ------------Tables Creation (Finance Entity )-----------------
-CREATE TABLE Finance (
-income DECIMAL(10,2),
-taxes DECIMAL(10,2),
-maintenance_cost DECIMAL(10,2)
-);
+
  --------------------------------------------------------------------
 ------------Tables Creation (Feedback  Entity )-----------------
 CREATE TABLE Feedback (
@@ -198,7 +246,6 @@ values('sarah',173,35,30,88,'8-8-2019')
 INSERT INTO Subscription (user_name, sub_num, type_sub, price, Period_sub, Start_in, discount_price)
 VALUES ('aboshareb', 1, 'Premium', '50', '1 month', '07-05-2023', 0);
 
-select *from user_gym where exists(select * from Subscription where user_name='dfs')
 
 create procedure addsubscribtion @usname varchar(30) , @num int ,@price varchar(30), @period varchar(30) , @start varchar(10)
 AS
@@ -217,16 +264,6 @@ VALUES (@usname, @Fac_rate, @c_rate,@comment);
 Go
 
 Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
-SELECT TOP 1 * FROM Body_info
-WHERE user_name = 'aboshareb'
-ORDER BY date_added_in DESC;
 
-select * from Body_info where date_added_in like '%2023%-05-%' and user_name='aboshareb'
 
-select*from user_gym
-
-alter table user_gym
-add profil_pic varchar(50)
-
-select valid_until from Subscription where user_name='aboshareb'
 

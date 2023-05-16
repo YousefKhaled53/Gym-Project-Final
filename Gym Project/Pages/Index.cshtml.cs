@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
+
 namespace Gym_Project.Pages
 {
 	public class IndexModel : PageModel
@@ -25,10 +27,14 @@ namespace Gym_Project.Pages
 		public string password_from_login { get; set; }
 		[BindProperty]
 		public string usrname_from_login { get; set; }
-        
+        [BindProperty]
+
+        public DataTable dt_Time_slots { get; set; }
+
         public void OnGet()
-		{
-            
+        {
+            dt_Time_slots = db.Time_slots();
+
         }
 
         
