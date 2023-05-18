@@ -182,7 +182,7 @@
                     <input type="hidden"  value="@Model.dt_Plans.Rows[i][0]" name="n" >
                         <input type="hidden" value="@Model.username_coming_from_login" name="cname">
                     <div class="border-first-button">
-                        <button onclick="Edits_saved()" asp-page-handler="saveplan">save</button>
+                            <button style="background-color:green;   border: 1px solid green !important;" onclick="Edits_saved()" asp-page-handler="saveplan">save</button>
                     </div>                <div class="border-first-button">
                         <buttonn id="start-editing-btn" onclick="startEditing('@i') ;startEditingWorker(@i) ">Edit</buttonn>
                     </div>

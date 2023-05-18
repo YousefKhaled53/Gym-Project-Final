@@ -66,7 +66,7 @@ namespace Gym_Project.Pages
             labels: ['January', 'February', 'March', 'April','May','June','July','August','September','October','November','December'],
             datasets: [
             {
-            label: 'Weight',
+            label: 'Fat percentage',
             //data: [90, 2171, 71, 17, 122, 172, 172, 172, 172, 173, 173, 173],
             backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -87,7 +87,7 @@ namespace Gym_Project.Pages
             borderWidth: 1
             },
             {
-            label: 'Height',
+            label: 'weight',
             //data: [190, 2171, 71, 17, 122, 172, 172, 172, 172, 173, 173, 173],
             backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -108,7 +108,7 @@ namespace Gym_Project.Pages
             borderWidth: 1
             },
             {
-            label: 'Fat Percentage',
+            label: 'Muscle mass',
             //data: [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9],
             backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -129,7 +129,7 @@ namespace Gym_Project.Pages
             borderWidth: 1
             },
             {
-            label: 'Muscle Mass',
+            label: 'Height',
             //data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
             backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
