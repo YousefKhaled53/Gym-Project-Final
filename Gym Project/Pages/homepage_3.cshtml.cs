@@ -110,5 +110,9 @@ namespace Gym_Project.Pages
             db.editslots(schedule);
             return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["capname"] });
         }
+        public IActionResult OnPostEditmachhine()
+        {
+            return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["capname"] });
+        }
     }
 }
