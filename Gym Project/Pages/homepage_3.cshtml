@@ -373,7 +373,7 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-                    <h6 style="font-size:50px; color:#fff; margin-bottom:-30px;">Equipment</h6>
+                    <h6 style="font-size: 50px; color: #fff; margin-bottom: -30px;">Equipment</h6>
                 </div>
             </div>
         </div>
@@ -381,48 +381,53 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="loop owl-carousel">
-                @for (int i =0 ;i<@Model.dt_for_machines.Rows.Count;i++)
+                @for (int i = 0; i < @Model.dt_for_machines.Rows.Count; i++)
                 {
                     <div class="item">
-                    <a>
-                        <div class="portfolio-item">
-                            <div class="thumb">
-                                <img src="images/@Model.dt_for_machines.Rows[i][3]" style="width:223px ; height:200px;" alt="">
+                        <a>
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                    <img src="images/@Model.dt_for_machines.Rows[i][3]" style="width: 223px; height: 200px;" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>NO:</h4> <span>@Model.dt_for_machines.Rows[i][0]</span>
+                                    <h4>Muscles:</h4>
+                                    <p>
+                                        <input style="width: 180px; position: center;" class="editable-input" value="@Model.dt_for_machines.Rows[i][7]" readonly>
+                                    </p>
+                                    <h4>Condition:</h4> <input type="number" style="width: 180px; position: center;" class="editable-input1" value="@Model.dt_for_machines.Rows[i][4]" readonly>
+                                    <form method="post">
+                                        <input type="hidden" name="machineno" value="@Model.dt_for_machines.Rows[i][0]">
+                                        <input type="hidden" name="un" value="@Model.username_coming_from_login">
+                                        <div class="border-first-button">
+                                            <button asp-page-handler="deletemachine">Delete</button>
+                                            <button style="  background-color: #315cfd;  padding: 5px 110px;
+    color: #fff !important;
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 1px solid #315cfd !important;
+    border-radius: 23px;" type="button" class="edit-button" onclick="enableEditing(this)">Edit</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="down-content">
-                                <h4>NO:</h4> <span>@Model.dt_for_machines.Rows[i][0]</span>
-                                <h4>Muscles:</h4><p><input style="width:180px; position:center;" id="x" value="@Model.dt_for_machines.Rows[i][7]" disabled></p>
-                                <h4>Condition:</h4> <span>@Model.dt_for_machines.Rows[i][4]</span>
-                                <form method="post">
-                                    <input type="hidden" name="machineno" value=" @Model.dt_for_machines.Rows[i][0] "></input>
-                                    <input type="hidden" name="un" value="@Model.username_coming_from_login"></input>
-                                    <div class="border-first-button"><button asp-page-handler="deletemachine">Delete</button></div>
-                                    <div class="border-first-button">
-                                        <buttonn onclick="machineEditing()">Edit</buttonn>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
+                        </a>
+                    </div>
                 }
-                <script>
-                    function machineEditing() {
-                        var input = document.getElementById('x');
-                        input.disabled = false;
-                        input.focus();
-
-                        input.addEventListener('blur', function () {
-                            input.disabled = true;
-                        });
-                    }
-                </script>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    function enableEditing(button) {
+        var container = button.closest(".item");
+        var inputField = container.querySelector(".editable-input");
+        inputField.readOnly = false;
+        var container1 = button.closest(".item");
+        var inputField1 = container.querySelector(".editable-input1");
+        inputField1.readOnly = false;
+    }
+</script>
 
 
 <div id="portfolio" class="our-portfolio section">
