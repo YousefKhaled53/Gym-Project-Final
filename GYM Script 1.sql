@@ -61,24 +61,7 @@ CREATE TABLE women_slots (
   FOREIGN KEY (day_of_week) REFERENCES Time_Slots(day_of_week)
 );
 
-INSERT INTO Time_Slots (day_of_week, Holidays,Working_hours_start,Working_hours_end) VALUES
-  ('Sunday', 'No','10:00 AM','8:00 PM'),
-  ('Monday', 'No','10:00 AM','8:00 PM'),
-  ('Tuesday', 'No','10:00 AM','8:00 PM'),
-  ('Wednesday', 'No','10:00 AM','8:00 PM'),
-  ('Thursday', 'No','10:00 AM','8:00 PM'),
-  ('Friday', 'Yes','10:00 AM','8:00 PM'),
-  ('Saturday', 'Yes','10:00 AM','9:00 PM');
 
-INSERT INTO women_slots (day_of_week, From_hours, To_hours) VALUES
-  ('Sunday', '1:00 PM', '2:00 PM'),
-  ('Tuesday', '1:00 PM', '2:00 PM'),
-  ('Thursday', '1:00 PM', '2:00 PM'),
-  ('Monday', '5:30 PM', '6:30 PM'),
-  ('Wednesday', '5:30 PM', '6:30 PM');
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'GetSlotStrings')
-    DROP PROCEDURE GetSlotStrings;
-GO
  
 CREATE PROCEDURE GetSlotStrings
 AS
@@ -188,12 +171,7 @@ Working_Muscles VARCHAR(500),
  );
 
 
- insert into Equipment(Equipment_num,Name_,Photo,Condition)
- values (9,'Treadmil','treadmil.jpg',100)
-
- insert into Working_Muscles(Equipment_num,Working_Muscles)
- values (9,'Cardio')
-
+ 
  
  --------------------------------------------------------------------
 ------------Tables Creation (Finance Entity )-----------------
@@ -220,10 +198,49 @@ general_comment varchar(200)
 
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
-values('abdulrahman','ahmed','6-26-2003','male','s-abdel-rahman.ahmed@zewailcity.edu.eg','student','aboshareb','2003')
+values
+('mohamed ','mahmoud','1-6-2004','male','s-mohamed1@zewailcity.edu.eg','student','mohamed','2003'),
+('marwa','ahmed','8-10-2001','female','s-marwa@zewailcity.edu.eg','student','marwa','2003'),
+('aly','omar','9-1-2000','male','s-aly@zewailcity.edu.eg','student','aly','2003'),
+('marawan','hossam','12-6-2003','male','s-marwan@zewailcity.edu.eg','student','marwan','2003'),
+('menna','moataz','8-7-2005','female','s-menna@zewailcity.edu.eg','student','menna','2003'),
+('shrouq','ahmed','2-4-1999','female','s-shrouq@zewailcity.edu.eg','student','shrouq','2003'),
+('mohamed','morshedy','12-12-2003','male','s-mohamed2@zewailcity.edu.eg','student','morshedy','2003'),
+('mariam','alaa','10-31-2001','female','s-mariam@zewailcity.edu.eg','student','mariam','2003'),
+('kareem','araby','3-1-2001','male','s-araby@zewailcity.edu.eg','student','araby','2003'),
+('belal','gamal','11-11-2003','male','s-belal@zewailcity.edu.eg','student','belal','2003'),
+('hassan','shahien','11-12-1998','male','s-hassan@zewailcity.edu.eg','student','hhassan','2003'),
+('ahmed','roushdy','11-12-1998','male','s-roushdy@zewailcity.edu.eg','student','roushdy','2003'),
+('moustafa','korym','11-12-1998','male','s-korym@zewailcity.edu.eg','student','korym','2003'),
+('eslam','mohamed','11-12-1998','male','s-loay@zewailcity.edu.eg','student','eslam','2003'),
+('ziad','bahgat','12-13-1999','male','s-bahgat@zewailcity.edu.eg','student','bahgat','2003'),
+('hamada','moheb','12-30-2000','male','s-hamada@zewailcity.edu.eg','student','hamada','2003'),
+('hareedy','mohsen','11-12-1998','male','s-hareedy@zewailcity.edu.eg','student','hareedy','2003'),
+('hazem','arafa','11-12-1998','male','s-loay2@zewailcity.edu.eg','student','hazem','2003'),
+('yussef','mohseb','11-12-1998','male','s-loay8@zewailcity.edu.eg','student','yussef','2003')
+
 -- this user is used to test the home page for a default user 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
-values('aboshareb',183,41,11,82) 
+values
+('mohamed',180,42,16,90) ,
+('marwa',170,35,19,62) ,
+('aly',173,39,19,61) ,
+('marwan',190,49,25,99) ,
+('menna',155,30,25,60) ,
+('shrouq',178,30,25,60) ,
+('morshedy',182,40,20,78) ,
+('mariam',172,30,20,68) ,
+('araby',180,41,18,98) ,
+('belal',177,34,15,68) ,
+('hhassan',177,34,15,68) ,
+('roushdy',184,37,15,78) ,
+('korym',180,40,12,78) ,
+('eslam',180,40,17,81) ,
+('bahgat',170,32,27,81) ,
+('hamada',180,30,32,90) ,
+('hareedy',180,30,32,90) ,
+('hazem',180,30,32,90) ,
+('yussef',180,30,32,90) 
 
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
@@ -237,14 +254,61 @@ values('sara','Ezaby','9-21-1988','female','s-sarah.ezaby@zewailcity.edu.eg','SU
 -- this user is to test the home page of the admistration officer (student affaires in this example )
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_,date_added_in)
 values('sarah',173,35,30,88,'8-8-2019')
+-- these insertions is for the equipment imgs
+insert into Equipment(Equipment_num,Name_,Photo,Condition)
+ values (9,'Treadmil','treadmil.jpg',100),
+ (1,'back pull','back pull.jpg',100),
+ (2,'bike','bike.jpg',100),
+ (3,'cable cross','cable cross.jpg',100),
+ (4,'chest fly','chest fly.jpg',100),
+ (5,'eliptical','eliptical.jpg',100),
+ (6,'leg press','leg press.jpg',100),
+ (7,'back extension','lowback.jpg',100),
+ (8,'Presses machine ','shoulder press.jpg',100),
+ (10,'smith machine ','smith.jpg',100)
+
+
+ insert into Working_Muscles(Equipment_num,Working_Muscles)
+ values (1,'Back'),
+ (2,'Cardio'),(3,'Multi muscles '),
+ (4,'chest and rear delts'),
+ (5,'Cardio'),
+ (6,'Legs'),
+ (7,'lower back'),
+ (8,'Chest and shoulder '),
+ (9,'Cardio'),
+ (10,'Multi muscles')
+ -- this is insertions for timeslots 
+ INSERT INTO Time_Slots (day_of_week, Holidays,Working_hours_start,Working_hours_end) VALUES
+  ('Sunday', 'No','10:00 AM','8:00 PM'),
+  ('Monday', 'No','10:00 AM','8:00 PM'),
+  ('Tuesday', 'No','10:00 AM','8:00 PM'),
+  ('Wednesday', 'No','10:00 AM','8:00 PM'),
+  ('Thursday', 'No','10:00 AM','8:00 PM'),
+  ('Friday', 'Yes','10:00 AM','8:00 PM'),
+  ('Saturday', 'Yes','10:00 AM','9:00 PM');
+
+INSERT INTO women_slots (day_of_week, From_hours, To_hours) VALUES
+  ('Sunday', '1:00 PM', '2:00 PM'),
+  ('Tuesday', '1:00 PM', '2:00 PM'),
+  ('Thursday', '1:00 PM', '2:00 PM'),
+  ('Monday', '5:30 PM', '6:30 PM'),
+  ('Wednesday', '5:30 PM', '6:30 PM');
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'GetSlotStrings')
+    DROP PROCEDURE GetSlotStrings;
+GO
+-- insertions for plans 
+insert into Plans(number,type,value_for_students,value_for_workers)
+values (1,'monthly',150,200)
+insert into Plans(number,type,value_for_students,value_for_workers)
+values (2,'3 months',300,450),(3,'6 months',500,750),(4,'Yearly',800,1200)
+
 
 -- please execute the code to create the data base then execute the insert queries 
 -- you can login with each specific user and it will be redirected to its page automatically 
 -- you can also test it by signing up (makin	g a new user) but it will be a default user with default body info data that can be edited in his home page 
 
 
-INSERT INTO Subscription (user_name, sub_num, type_sub, price, Period_sub, Start_in, discount_price)
-VALUES ('aboshareb', 1, 'Premium', '50', '1 month', '07-05-2023', 0);
 
 
 create procedure addsubscribtion @usname varchar(30) , @num int ,@price varchar(30), @period varchar(30) , @start varchar(10)
