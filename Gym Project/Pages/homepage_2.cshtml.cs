@@ -48,7 +48,7 @@ namespace Gym_Project.Pages
             dt_Time_slots = db.Time_slots();
 
             enddate = (db.getvalid_until_date(username_coming_from_login));
-
+            
             if (db.getprofilepiclink(username_coming_from_login) != null)
             {
                 picurl = db.getprofilepiclink(username_coming_from_login);

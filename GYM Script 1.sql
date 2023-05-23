@@ -340,5 +340,3 @@ Go
 
 Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
 
-
- 
