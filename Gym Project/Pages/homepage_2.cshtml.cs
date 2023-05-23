@@ -27,7 +27,8 @@ namespace Gym_Project.Pages
         public DateTime start_date { get; set; }
         public DateTime enddate{ get; set; }
         public DataTable dt_Time_slots { get; set; }
-
+        public string gym_availability { get; set; }
+        public string gym_availability_asking { get; set; }
         public homepage_2Model(ILogger<IndexModel> logger, GYM_DB db)
         {
             _logger = logger;
@@ -36,6 +37,14 @@ namespace Gym_Project.Pages
 
         public void OnGet()
         {
+            gym_availability_asking = db.getgymavailability();
+            if (gym_availability_asking == "true")
+            {
+                gym_availability = "Gym is available , waiting for you ! ";
+            }
+            else {
+                gym_availability = "Gym is Currently busy , you can visit after 1-2 hours ";
+            }
             dt_Time_slots = db.Time_slots();
 
             enddate = (db.getvalid_until_date(username_coming_from_login));

@@ -118,5 +118,17 @@ namespace Gym_Project.Pages
                 db.editmachine(muscles,condition,equipmentNo);
                 return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["un"] });
             }
+        public IActionResult OnPostBusy()
+        {
+            db.change_availability("false");
+                return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["capname"] });
+
+        }
+        public IActionResult OnPostFree()
+        {
+            db.change_availability("true");
+            return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["capname"] });
+
+        }
     }
 }

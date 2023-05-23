@@ -12,8 +12,8 @@ namespace Gym_Project.Models
 	{
 		public SqlConnection connection;
 		public GYM_DB() {
-			string connString = " Data Source=win-knrbt2j50bp;Initial Catalog=GYMDB;Integrated Security=True";
-			connection = new SqlConnection(connString);
+            string connString = " Data Source=desktop-8u2ml7t;Initial Catalog=GYMDB;Integrated Security=True";
+            connection = new SqlConnection(connString);
 		}
 
 		
@@ -403,6 +403,34 @@ namespace Gym_Project.Models
             }
             finally { connection.Close(); }
         }
-
+        public string getgymavailability()
+        {
+            string av = ".";
+            string q = "select gym_availabilty from gym_availability where n=1";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                av = (string)comm.ExecuteScalar();
+            }
+            catch (SqlException ex) { }
+            finally { connection.Close(); }
+            return av;
+        }
+        public void change_availability(string availability)
+        {
+            string q = "update gym_availability set gym_availabilty = '"+availability+"' where n = 1";
+            try
+            {
+                connection.Open();
+                SqlCommand comm = new SqlCommand(q, connection);
+                comm.ExecuteNonQuery();
+            }
+            catch
+            {
+                SqlException ex;
+            }
+            finally { connection.Close(); }
+        }
     }
 }

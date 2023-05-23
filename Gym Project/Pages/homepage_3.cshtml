@@ -169,8 +169,10 @@
     <div class="text-center">
         <h1>Gym Availablity</h1>
         <br><br>
+        <form method="post">
+            <input type="hidden" name="capname" value="@Model.username_coming_from_login"></input>
 
-        <button class="buttoncheck">Gym Is Free</button>
+            <button onclick="availability_saved('the gym is set to be free')" class="buttoncheck" asp-page-handler="free">Gym Is Free</button>
         <style>
             .buttoncheck {
                 font-size: 17px;
@@ -190,7 +192,10 @@
                 .buttoncheck:active {
                     transform: translate(0em, 0.2em);
                 }</style>
-        <button class="buttoncheck1">Gym Is Busy</button>
+            <input type="hidden" name="capname" value="@Model.username_coming_from_login"></input>
+
+            <button onclick="availability_saved('the gym is set to be busy, dont forget to return it free')" class="buttoncheck1" asp-page-handler="busy">Gym Is Busy</button>
+        </form>
         <style>
             .buttoncheck1 {
                 font-size: 17px;
@@ -214,6 +219,11 @@
     </div>
 </div>
 
+<script>
+    function availability_saved(text) {
+        alert(text);
+    }
+</script>
 <div id="about" class="about section">
     <div class="container">
 
