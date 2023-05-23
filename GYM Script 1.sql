@@ -222,6 +222,9 @@ values
 -- this user is used to test the home page for a default user 
 insert into Body_info(user_name,height,Muscles_Percentage,Fats_Percentage,weight_)
 values
+('Zee',190,48,20,100),
+('sarah',160,31,25,77),
+('aboshareb',184,45,13,89),
 ('mohamed',180,42,16,90) ,
 ('marwa',170,35,19,62) ,
 ('aly',173,39,19,61) ,
@@ -329,5 +332,10 @@ Go
 
 Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
 
+
+
+
+
+SELECT TOP 1 * FROM Body_info WHERE user_name =  'aboshareb' ORDER BY date_added_in DESC;
 
 

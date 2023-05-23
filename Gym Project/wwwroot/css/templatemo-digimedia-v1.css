@@ -53,6 +53,7 @@ button {
     border-radius: 30px;
     transition: all 0.3s;
     cursor: pointer;
+    display: initial;
     background: white;
     font-size: 1em;
     font-weight: 550;
