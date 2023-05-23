@@ -110,13 +110,13 @@ namespace Gym_Project.Pages
             db.editslots(schedule);
             return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["capname"] });
         }
-        public IActionResult OnPostSavemachines()
-        {
-            string equipmentNo = Request.Form["machineno"];
-            string muscles = Request.Form["muscles"];
-            string condition = Request.Form["condition"];
-            db.editmachine(muscles,condition,equipmentNo);
-            return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["un"] });
-        }
+            public IActionResult OnPostSavemachines()
+            {
+                string equipmentNo = Request.Form["machineno"];
+                string muscles = Request.Form["muscles"];
+                string condition = Request.Form["condition"];
+                db.editmachine(muscles,condition,equipmentNo);
+                return RedirectToPage("/homepage_3", new { username_coming_from_login = Request.Form["un"] });
+            }
     }
 }

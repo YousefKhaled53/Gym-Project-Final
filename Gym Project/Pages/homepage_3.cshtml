@@ -390,19 +390,17 @@
                                     <img src="images/@Model.dt_for_machines.Rows[i][3]" style="width: 223px; height: 200px;" alt="">
                                 </div>
                                 <div class="down-content">
+                                    <form method="post">
+
                                     <h4>NO:</h4> <span>@Model.dt_for_machines.Rows[i][0]</span>
                                     <h4>Muscles:</h4>
                                     <p>
-                                        <input  style="width: 180px; position: center;" class="editable-input" value="@Model.dt_for_machines.Rows[i][7]" readonly>
+                                            <input name="muscles" style="width: 180px; position: center;" class="editable-input" value="@Model.dt_for_machines.Rows[i][7]" disabled>
                                     </p>
-                                    <h4>Condition:</h4> <input  type="number" style="width: 180px; position: center;" class="editable-input1" value="@Model.dt_for_machines.Rows[i][4]" readonly>
-                                    <form method="post">
-                                        <input type="hidden" name="machineno" value="@Model.dt_for_machines.Rows[i][0]">
-                                        <input type="hidden" name="condition" value="@Model.dt_for_machines.Rows[i][4]">
-                                        <input type="hidden" name="muscles" value="@Model.dt_for_machines.Rows[i][7]">
-                                        
+                                    <h4>Condition:</h4> <input name="condition" type="number" style="width: 180px; position: center;" class="editable-input1" value="@Model.dt_for_machines.Rows[i][4]" disabled>
                                         <input type="hidden" name="un" value="@Model.username_coming_from_login">
                                         <div class="border-first-button">
+                                            <input type="hidden" name="machineno" value="@Model.dt_for_machines.Rows[i][0]"></input>
                                             <button asp-page-handler="deletemachine">Delete</button>
                                             <button style="  background-color: #315cfd;  padding: 5px 110px; color: #fff !important; margin-top: 20px;margin-left: 10px; border: 1px solid #315cfd !important; border-radius: 23px;" type="button" class="edit-button" onclick="enableEditing(this)">Edit</button>
                                             <button style="  background-color: #315cfd;  padding: 5px 110px; color: #fff !important; margin-top: 20px;margin-left: 10px; border: 1px solid #315cfd !important; border-radius: 23px;"  asp-page-handler="savemachines">Save </button>
@@ -418,15 +416,16 @@
     </div>
 </div>
 
-
 <script>
     function enableEditing(button) {
         var container = button.closest(".item");
         var inputField = container.querySelector(".editable-input");
-        inputField.readOnly = false;
+        inputField.disabled = false;
         var container1 = button.closest(".item");
         var inputField1 = container.querySelector(".editable-input1");
-        inputField1.readOnly = false;
+        inputField1.disabled = false;
+
+
     }
 </script>
 

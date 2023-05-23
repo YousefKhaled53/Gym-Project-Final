@@ -390,7 +390,7 @@ namespace Gym_Project.Models
         }
         public void editmachine(string muscles,string condition, string number)
         {
-            string q = "update Equipment Condition = "+condition+" where Equipment_num = "+number+" update Working_Muscles set Working_Muscles = '"+muscles+"' where Working_Muscles.Equipment_num = "+number+"; ";
+            string q = "update Equipment set Condition = "+condition+" where Equipment_num = "+number+" update Working_Muscles set Working_Muscles = '"+muscles+"' where Working_Muscles.Equipment_num = "+number+"; ";
             try
             {
                 connection.Open();
