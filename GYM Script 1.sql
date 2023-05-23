@@ -53,6 +53,12 @@ CREATE TABLE Time_Slots (
   Working_hours_start TIME DEFAULT '10:00 AM',
   Working_hours_end TIME DEFAULT '8:00 PM'
 );
+-- a table representing the gym availabilty (busy / not)
+CREATE TABLE gym_availability (
+	n int primary key,
+	gym_availabilty varchar(30)
+);
+
 
 CREATE TABLE women_slots (
   day_of_week VARCHAR(10) NOT NULL PRIMARY KEY,
@@ -195,7 +201,7 @@ facilitis_rate int ,
 coach_rate int,
 general_comment varchar(200)
 );
-
+-- insertions important to run the code
 
 insert into user_gym(first_name,last_name,birthday,gender,email,job,user_name,password_)
 values
@@ -306,6 +312,8 @@ values (1,'monthly',150,200)
 insert into Plans(number,type,value_for_students,value_for_workers)
 values (2,'3 months',300,450),(3,'6 months',500,750),(4,'Yearly',800,1200)
 
+insert into gym_availability(n,gym_availabilty)
+values (1,'true')
 
 -- please execute the code to create the data base then execute the insert queries 
 -- you can login with each specific user and it will be redirected to its page automatically 
@@ -333,8 +341,5 @@ Go
 Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
 
 
-
-
-SELECT TOP 1 * FROM Body_info WHERE user_name =  'aboshareb' ORDER BY date_added_in DESC;
 
 

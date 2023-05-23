@@ -50,7 +50,16 @@ namespace Gym_Project.Pages
             user.email = Request.Form["mail"];
             user.password = Request.Form["pass"];
             user.username= Request.Form["username"];
-            user.profileurl = filename;
+            string temppic = Request.Form["temppicurl"]; // temporary url for the picture the used to be used if the user didn't enter new pic 
+            if (filename != "")
+            {
+                user.profileurl = filename;
+            }
+            else
+            {
+                user.profileurl = temppic;
+
+            }
             DateTime add_date = DateTime.Now;
             int day = add_date.Day;
             int month = add_date.Month;

@@ -5,11 +5,14 @@
    Layout = "_layout3"; 
 }
 <div class="container emp-profile">
+
     <form method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
                     <img src="images/@Model.specific_user_data_table.Rows[0][9]" alt="" />
+                    <input name="temppicurl" type="hidden" value="@Model.specific_user_data_table.Rows[0][9]">
+
                     <div class="file btn btn-lg btn-primary">
                         Change Photo
                         <input type="file" name="file" class="form-control" asp-for=File/>
