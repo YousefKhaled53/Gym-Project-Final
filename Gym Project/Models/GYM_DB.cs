@@ -12,7 +12,7 @@ namespace Gym_Project.Models
 	{
 		public SqlConnection connection;
 		public GYM_DB() {
-			string connString = " Data Source=desktop-8u2ml7t;Initial Catalog=GYMDB;Integrated Security=True";
+			string connString = " Data Source=win-knrbt2j50bp;Initial Catalog=GYMDB;Integrated Security=True";
 			connection = new SqlConnection(connString);
 		}
 

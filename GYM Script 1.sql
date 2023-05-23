@@ -340,6 +340,17 @@ Go
 
 Exec add_Feedback_from_user @usname='aboshareb',@Fac_rate=5,@c_rate=5,@comment=' perfect gym '
 
+<<<<<<< Updated upstream
 
 
 
+<<<<<<< Updated upstream
+=======
+SELECT TOP 1 * FROM Body_info WHERE user_name =  'aboshareb' ORDER BY date_added_in DESC;
+
+
+=======
+select* from Time_Slots  inner join women_slots on women_slots.day_of_week=Time_Slots.day_of_week
+drop table women_slots
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

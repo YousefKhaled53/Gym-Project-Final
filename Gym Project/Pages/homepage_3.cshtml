@@ -165,12 +165,62 @@
         </div>
 
     </div>
+    <br><br>
+    <div class="text-center">
+        <h1>Gym Availablity</h1>
+        <br><br>
+
+        <button class="buttoncheck">Gym Is Free</button>
+        <style>
+            .buttoncheck {
+                font-size: 17px;
+                padding: 0.5em 2em;
+                border: transparent;
+                box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+                background: SeaGreen;
+                color: white;
+                border-radius: 4px;
+            }
+
+                .buttoncheck:hover {
+                    background: #00FF7F;
+                    background: linear-gradient(90deg, SeaGreen 0%, #32CD32 100%);
+                }
+
+                .buttoncheck:active {
+                    transform: translate(0em, 0.2em);
+                }</style>
+        <button class="buttoncheck1">Gym Is Busy</button>
+        <style>
+            .buttoncheck1 {
+                font-size: 17px;
+                padding: 0.5em 2em;
+                border: transparent;
+                box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+                background: Red;
+                color: white;
+                border-radius: 4px;
+            }
+
+                .buttoncheck1:hover {
+                    background: Red;
+                    background: linear-gradient(90deg, Red 0%, Crimson 100%);
+                }
+
+                .buttoncheck1:active {
+                    transform: translate(0em, 0.2em);
+                }</style>
+
+    </div>
 </div>
 
 <div id="about" class="about section">
     <div class="container">
-        <h6 style="font-size:40px; margin-left:400px; margin-bottom:30px; margin-top:-50px">The plans available</h6>
-        <div class="card-container">
+
+        <div class="text-center">
+            <h6 style="font-size:40px; margin-bottom:30px; margin-top:-150px">The plans available</h6>
+        </div>
+            <div class="card-container">
             @for(int i = 0; i < Model.dt_Plans.Rows.Count; i++)
             {
                 <form method="post">
@@ -387,7 +437,7 @@
                         <a>
                             <div class="portfolio-item">
                                 <div class="thumb">
-                                    <img src="images/@Model.dt_for_machines.Rows[i][3]" style="width: 223px; height: 200px;" alt="">
+                                    <img src="images/@Model.dt_for_machines.Rows[i][3]" style="width: 274px; height: 200px;" alt="">
                                 </div>
                                 <div class="down-content">
                                     <form method="post">
